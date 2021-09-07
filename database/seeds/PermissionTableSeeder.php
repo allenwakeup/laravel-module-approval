@@ -20,10 +20,6 @@ class PermissionTableSeeder extends Seeder
                     [
                         'name' => '主数据',
                         'children' => [
-                            [
-                                'name' => '部门管理',
-                                'link' => $this->getSeedsModuleApiUri(self::MODULE_ALIAS,'departments'),
-                            ],
                         ]
                     ]
                 ]
@@ -34,10 +30,6 @@ class PermissionTableSeeder extends Seeder
     public function getSeedsPermissionGroups (){
         return [
             // 主数据
-            // 地区管理
-            $this->getSeedsModuleMenuGroupName(self::MODULE_ALIAS, '部门管理') => [
-                self::MODULE_ALIAS . '.departments'
-            ]
         ];
     }
 }
