@@ -1,0 +1,17 @@
+{
+    "name": "Approval",
+    "alias": "approval",
+    "description": "OA Approval Process",
+    "keywords": [],
+    "order": 555,
+    "providers": [
+        "Goodcatch\\Modules\\Approval\\Providers\\ApprovalServiceProvider"
+    ],
+    "aliases": {},
+    "files": [
+        "src/helpers.php"
+    ],
+    "requires": [],
+    "version": "0.1.0",
+    "type": 1
+}

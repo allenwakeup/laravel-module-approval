@@ -1,0 +1,40 @@
+{
+    "name": "goodcatch/laravel-module-approval",
+    "description": "OA Approval Process",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Allen Li",
+            "email": "ali@goodcatch.cn",
+            "homepage": "http://note.goodcatch.cn/it/dev-laravel/laravel-modules/laravel-module-approval",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=7.3"
+    },
+    "require-dev": {
+        "ext-json": "*",
+        "illuminate/support": "^8.0",
+        "laravel/framework": "^8.0",
+        "laravel/helpers": "^1.4.0",
+        "goodcatch/laravel-modules": "^0.1.0",
+        "goodcatch/laravel-module-base": "dev-master"
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Goodcatch\\Modules\\Approval\\": "src"
+        },
+        "classmap": [
+            "database/seeds"
+        ]
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
