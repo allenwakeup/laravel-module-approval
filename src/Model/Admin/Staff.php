@@ -33,8 +33,20 @@ class Staff extends Model
      *
      * @var string
      */
-    protected $table = 'core_staff';
+    protected $table;
 
+    /**
+     * Create a new Eloquent model instance.
+     *
+     * @param  array  $attributes
+     * @return void
+     */
+    public function __construct(array $attributes = [])
+    {
+        parent::__construct($attributes);
+
+        $this->table = approval_config(static::class);
+    }
 
     public static $searchField = [
         'name'       => '用户名',

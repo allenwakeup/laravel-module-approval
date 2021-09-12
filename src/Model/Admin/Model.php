@@ -5,7 +5,7 @@
 
 namespace Goodcatch\Modules\Approval\Model\Admin;
 
-use Goodcatch\Modules\Lightcms\Model\Admin\Model as BaseModel;
+use Goodcatch\Modules\Laravel\Model\Model as BaseModel;
 
 abstract class Model extends BaseModel
 {
