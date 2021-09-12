@@ -34,9 +34,9 @@ class Crew extends Model
         return $this->belongsTo ('Goodcatch\Modules\Approval\Model\Admin\Team', 'team_id');
     }
 
-    public function isBelongToCrew ($employee, $application = null)
+    public function isBelongToCrew ($staff, $application = null)
     {
-        return $this->isEmployeeInCondition ($employee, $application);
+        return $this->isStaffInCondition ($staff, $application);
     }
 
     /**
@@ -44,34 +44,34 @@ class Crew extends Model
      * @param $admin_user
      * @return bool
      */
-    public function isEmployeeInCondition ($employee, $application = null)
+    public function isStaffInCondition ($staff, $application = null)
     {
         $result = false;
-        if (isset ($employee)) {
+        if (isset ($staff)) {
 
 
             switch ($this->condition) {
                 case self::CONDITION_PARENT:
-                    $result = $employee->isApplicationOperatorParentUser ($application);
+                    $result = $staff->isApplicationOperatorParentUser ($application);
                     break;
                 case self::CONDITION_PEOPLE_ONE:
                 case self::CONDITION_PEOPLE_ALL:
-                    $result = $this->isPrimaryEmployee ($employee)
-                        || $this->isSecondaryEmployee ($employee)
-                        || $this->isOtherEmployee ($employee);
+                    $result = $this->isPrimaryStaff ($staff)
+                        || $this->isSecondaryStaff ($staff)
+                        || $this->isOtherStaff ($staff);
                     break;
 
                 case self::CONDITION_TAG:
-                    $result = $this->isUserTitle ($employee)
-                        || $this->isUserRank ($employee);
+                    $result = $this->isUserTitle ($staff)
+                        || $this->isUserRank ($staff);
                     break;
 
                 case self::CONDITION_COMBINE_ALL:
-                    $result = $this->isPrimaryEmployee ($employee)
-                        || $this->isSecondaryEmployee ($employee)
-                        || $this->isOtherEmployee ($employee)
-                        || $this->isUserTitle ($employee)
-                        || $this->isUserRank ($employee);
+                    $result = $this->isPrimaryStaff ($staff)
+                        || $this->isSecondaryStaff ($staff)
+                        || $this->isOtherStaff ($staff)
+                        || $this->isUserTitle ($staff)
+                        || $this->isUserRank ($staff);
                     break;
             }
         }
@@ -128,87 +128,87 @@ class Crew extends Model
 
     public function primaryuser ()
     {
-        return $this->hasOne ('Goodcatch\Modules\Approval\Model\Admin\Employee', 'id', 'employee_primary');
+        return $this->hasOne ('Goodcatch\Modules\Approval\Model\Admin\Staff', 'id', 'staff_primary');
     }
 
     public function seconduser ()
     {
-        return $this->hasOne ('Goodcatch\Modules\Approval\Model\Admin\Employee', 'id', 'employee_secondary');
+        return $this->hasOne ('Goodcatch\Modules\Approval\Model\Admin\Staff', 'id', 'staff_secondary');
     }
 
     public function otheruser ()
     {
-        return $this->hasOne ('Goodcatch\Modules\Approval\Model\Admin\Employee', 'id', 'employee_other');
+        return $this->hasOne ('Goodcatch\Modules\Approval\Model\Admin\Staff', 'id', 'staff_other');
     }
 
     public function titleusers ()
     {
-        return $this->hasMany ('Goodcatch\Modules\Approval\Model\Admin\Employee', 'title', 'title');
+        return $this->hasMany ('Goodcatch\Modules\Approval\Model\Admin\Staff', 'title', 'title');
     }
 
     public function rankusers ()
     {
-        return $this->hasMany ('Goodcatch\Modules\Approval\Model\Admin\Employee', 'rank', 'rank');
+        return $this->hasMany ('Goodcatch\Modules\Approval\Model\Admin\Staff', 'rank', 'rank');
     }
 
     /**
      * 是否主要审核人
      *
-     * @param $employee
+     * @param $staff
      * @return bool
      */
-    public function isPrimaryEmployee ($employee)
+    public function isPrimaryStaff ($staff)
     {
-        if (isset ($employee) && isset ($this->primaryuser)) {
-            return $this->primaryuser->id === $employee->id;
+        if (isset ($staff) && isset ($this->primaryuser)) {
+            return $this->primaryuser->id === $staff->id;
         }
         return false;
     }
 
     /**
      * 是否次要审核人
-     * @param $employee
+     * @param $staff
      * @return bool
      */
-    public function isSecondaryEmployee ($employee)
+    public function isSecondaryStaff ($staff)
     {
-        if (isset ($employee) && isset ($this->seconduser)) {
-            return $this->seconduser->id === $employee->id;
+        if (isset ($staff) && isset ($this->seconduser)) {
+            return $this->seconduser->id === $staff->id;
         }
         return false;
     }
 
     /**
      * 是否其他审核人
-     * @param $employee
+     * @param $staff
      * @return bool
      */
-    public function isOtherEmployee ($employee)
+    public function isOtherStaff ($staff)
     {
-        if (isset ($employee) && isset ($this->otheruser)) {
-            return $this->otheruser->id === $employee->id;
+        if (isset ($staff) && isset ($this->otheruser)) {
+            return $this->otheruser->id === $staff->id;
         }
         return false;
     }
 
     /**
      * 是否匹配职称
-     * @param $employee
+     * @param $staff
      * @return bool
      */
-    public function isUserTitle ($employee)
+    public function isUserTitle ($staff)
     {
-        return isset ($employee) && $this->title === $employee->title;
+        return isset ($staff) && $this->title === $staff->title;
     }
 
     /**
      * 是否匹配级别
-     * @param $employee
+     * @param $staff
      * @return bool
      */
-    public function isUserRank ($employee)
+    public function isUserRank ($staff)
     {
-        return isset ($employee) && $this->rank === $employee->rank;
+        return isset ($staff) && $this->rank === $staff->rank;
     }
 
 }

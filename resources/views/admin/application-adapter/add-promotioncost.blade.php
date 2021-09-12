@@ -21,25 +21,25 @@
                                value=""
                                title="本人申请"
                                lay-filter="radio-type"
-                               @if((isset($id) && empty($model->proxy_user_id)) || !isset($id)) checked="" @endif>
+                               @if((isset($id) && empty($model->proxy_staff_id)) || !isset($id)) checked="" @endif>
                         <input type="radio"
                                name="type"
-                               value="proxy_user_id"
+                               value="proxy_staff_id"
                                title="代理申请"
                                lay-filter="radio-type"
-                               @if(isset($id) && !empty($model->proxy_user_id)) checked="" @endif>
+                               @if(isset($id) && !empty($model->proxy_staff_id)) checked="" @endif>
                     </div>
                 </div>
                 <div class="layui-form-item related-to-user"
-                     @if((isset($id) && empty($model->proxy_user_id)) || !isset($id)) style="display:none;" @endif>
+                     @if((isset($id) && empty($model->proxy_staff_id)) || !isset($id)) style="display:none;" @endif>
                     <label class="layui-form-label">授权人</label>
                     <div class="layui-input-block">
                         <select name="proxy_user_id"
                                 xm-select-radio
-                                xm-select="proxy_user_id"
+                                xm-select="proxy_staff_id"
                                 xm-select-max="1"
-                                xm-select-search="{{ route ('admin::' . module_route_prefix ('.') . 'approval.employee.list') }}?type=user"
-                                lay-filter="search_proxy_user_id"></select>
+                                xm-select-search="{{ route ('admin::' . module_route_prefix ('.') . 'approval.staff.list') }}?type=user"
+                                lay-filter="search_proxy_staff_id"></select>
                     </div>
                 </div>
 
@@ -166,7 +166,7 @@
 
             $related_to_user = $('.layui-form-item.related-to-user');
             switch (data.value) {
-                case 'proxy_user_id':
+                case 'proxy_staff_id':
                     $related_to_user.fadeIn(100);
                     break;
                 default:

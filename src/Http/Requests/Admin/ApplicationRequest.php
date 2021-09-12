@@ -16,7 +16,7 @@ class ApplicationRequest extends BaseRequest
             case 'POST':
                 return [
                     'name' => 'required|string|max:50',
-                    'proxy_user_id' => 'numeric|exists:ap_employees,id',
+                    'proxy_staff_id' => 'numeric|exists:core_staff,id',
                     'project_id' => 'required|numeric|exists:ap_projects,id',
                 ];
                 break;

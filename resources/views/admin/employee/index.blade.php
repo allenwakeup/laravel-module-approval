@@ -7,7 +7,7 @@
         <div class="layui-form layui-card-header light-search" style="height: auto">
             <form>
                 <input type="hidden" name="action" value="search">
-                @include ('admin.searchField', ['data' => Goodcatch\Modules\Approval\Model\Admin\Employee::$searchField])
+                @include ('admin.searchField', ['data' => Goodcatch\Modules\Approval\Model\Admin\Staff::$searchField])
                 <div class="layui-inline">
                     <label class="layui-form-label">创建日期</label>
                     <div class="layui-input-inline">
@@ -22,11 +22,11 @@
             </form>
         </div>
         <div class="layui-card-body">
-            <table class="layui-table" lay-data="{url:'{{ route ('admin::' . module_route_prefix ('.') . 'approval.employee.list') }}?{{ request()->getQueryString() }}', page:true, limit:50, id:'table', toolbar:'<div><a href=\'{{ route ('admin::' . module_route_prefix ('.') . 'approval.employee.create') }}\'><i class=\'layui-icon layui-icon-add-1\'></i>新增管理员</a></div>'}" lay-filter="table">
+            <table class="layui-table" lay-data="{url:'{{ route ('admin::' . module_route_prefix ('.') . 'approval.staff.list') }}?{{ request()->getQueryString() }}', page:true, limit:50, id:'table', toolbar:'<div><a href=\'{{ route ('admin::' . module_route_prefix ('.') . 'approval.staff.create') }}\'><i class=\'layui-icon layui-icon-add-1\'></i>新增管理员</a></div>'}" lay-filter="table">
                 <thead>
                 <tr>
                     <th lay-data="{field:'id', width:80, sort: true}">ID</th>
-                    @include ('admin.listHead', ['data' => Goodcatch\Modules\Approval\Model\Admin\Employee::$listField])
+                    @include ('admin.listHead', ['data' => Goodcatch\Modules\Approval\Model\Admin\Staff::$listField])
                     <th lay-data="{field:'created_at'}">添加时间</th>
                     <th lay-data="{field:'updated_at'}">更新时间</th>
                     <th lay-data="{width:200, templet:'#action'}">操作</th>
@@ -38,9 +38,9 @@
 @endsection
 <script type="text/html" id="action">
     <a href="<% d.editUrl %>" class="layui-table-link" title="编辑员工"><i class="layui-icon layui-icon-edit"></i></a>
-    <a href="javascript:;" class="layui-table-link" title="删除" style="margin-left: 10px" onclick="deleteEmployee ('<% d.deleteUrl %>')"><i class="layui-icon layui-icon-delete"></i></a>
+    <a href="javascript:;" class="layui-table-link" title="删除" style="margin-left: 10px" onclick="deleteStaff ('<% d.deleteUrl %>')"><i class="layui-icon layui-icon-delete"></i></a>
 </script>
-@include('approval::admin.listHeadTpl', ['data' => Goodcatch\Modules\Approval\Model\Admin\Employee::$listField])
+@include('approval::admin.listHeadTpl', ['data' => Goodcatch\Modules\Approval\Model\Admin\Staff::$listField])
 @section('js')
     <script>
         var laytpl = layui.laytpl;
@@ -55,7 +55,7 @@
             range: '~'
         });
 
-        function deleteEmployee (url) {
+        function deleteStaff (url) {
             layer.confirm ('确定删除？', function (index){
                 $.ajax({
                     url: url,

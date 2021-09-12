@@ -13,7 +13,7 @@ class ApprovalFlowRepository extends BaseRepository
 
     public static function list($perPage, $condition = [], $auditable = null, $with_content = false)
     {
-        $columns = ['id', 'name', 'admin_user_id', 'proxy_user_id', 'project_id', 'path', 'display', 'convert_status', 'status', 'order', 'created_at', 'updated_at'];
+        $columns = ['id', 'name', 'admin_user_id', 'proxy_staff_id', 'project_id', 'path', 'display', 'convert_status', 'status', 'order', 'created_at', 'updated_at'];
         if ($with_content)
         {
             $columns [] = 'content';

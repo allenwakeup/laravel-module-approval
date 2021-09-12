@@ -65,7 +65,7 @@ class ApprovalFlowController extends BaseController
                 $approval_flow = $auditable_inst::find ($id);
                 if ($approval_flow && $approval_flow->status !== $auditable_inst::STATUS_APPROVED) {
                     // 是审批组审批环节中的操作人
-                    if ($this->employee->isApplicationOperatorParentUser ($approval_flow) || $approval_flow->project->isEmployeeInCrews ($this->employee)) {
+                    if ($this->staff->isApplicationOperatorParentUser ($approval_flow) || $approval_flow->project->isStaffInCrews ($this->staff)) {
                         // 该申请的所有审批组的审批节点
                         if ($approval_flow->hasDirectTeam ()) // 结案类型
                         {
@@ -84,7 +84,7 @@ class ApprovalFlowController extends BaseController
                             });
                             // 寻找当前用户在所有审批组最靠前的位置
                             foreach ($crews as $crew) {
-                                if ($crew->isBelongToCrew ($this->employee, $approval_flow)) {
+                                if ($crew->isBelongToCrew ($this->staff, $approval_flow)) {
                                     $curr_crew = $crew;
                                     break;
                                 }
@@ -99,7 +99,7 @@ class ApprovalFlowController extends BaseController
                                     'auditable_type' => $auditable_class,
                                     'crew_id'        => $curr_crew->id,
                                     //'crew' => $curr_crew,
-                                    'employe_id'     => $this->employee->id,
+                                    'staff_id'     => $this->staff->id,
                                     //'user' => $user,
                                 ]);
                                 $audit = Audit::find ($audit->id);
@@ -126,7 +126,7 @@ class ApprovalFlowController extends BaseController
                                     if ($audit->result === Audit::RESULT_IN_PROGRESS) {
                                         $audit->result = $status;
                                         $audit->crew = $curr_crew;
-                                        $audit->employee = $this->employee->toArray ();
+                                        $audit->staff = $this->staff->toArray ();
                                         $audit->note = $request->note;
                                         return [
                                             'code'   => 0,

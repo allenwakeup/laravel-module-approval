@@ -5,7 +5,7 @@
 
 namespace Goodcatch\Modules\Approval\Repositories\Admin;
 
-use Goodcatch\Modules\Approval\Model\Admin\Employee;
+use Goodcatch\Modules\Approval\Model\Admin\Staff;
 use Goodcatch\Modules\Core\Model\Admin\Department;
 use Goodcatch\Modules\Approval\Model\Admin\Team;
 
@@ -33,7 +33,7 @@ class TeamRepository extends BaseRepository
             }
             return $find;
         }, []));
-        $all_admin_users = Employee::with('department')->find($data->reduce(function ($find, $team){
+        $all_admin_users = Staff::with('department')->find($data->reduce(function ($find, $team){
             if (isset ($team->admin_users) && !empty ($team->admin_users))
             {
                 $find = array_merge($find, explode(',', $team->admin_users));

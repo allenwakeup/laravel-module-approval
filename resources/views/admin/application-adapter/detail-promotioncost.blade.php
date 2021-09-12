@@ -162,7 +162,7 @@
                                                                 <p>{{ $model->applier->name }}</p>
                                                             </div>
                                                         </li>
-                                                        @foreach($team->sortedcrews() as $crew)
+                                                        @foreach($team->sorted_crews() as $crew)
                                                             <li class="layui-timeline-item">
 
                                                                 @if(isset($audits[$crew->id]))
@@ -293,7 +293,7 @@
                                                         @endswitch
 
                                                     </h3>
-                                                    <p>{{ $abn_audit->employee ['name'] }} {{ $abn_audit->employee['updated_at'] }}</p>
+                                                    <p>{{ $abn_audit->staff ['name'] }} {{ $abn_audit->staff['updated_at'] }}</p>
                                                 </div>
                                             </li>
                                         @endforeach

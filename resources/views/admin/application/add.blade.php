@@ -7,7 +7,7 @@
         @php
             $is_super_admin = \Auth::guard('admin')->user()->isSuperAdmin ();
             $menu_adapter = $menu->find ('admin::' . module_route_prefix ('.') . 'approval.adapter.create');
-            $menu_employee = $menu->find ('admin::' . module_route_prefix ('.') . 'approval.employee.create');
+            $menu_staff = $menu->find ('admin::' . module_route_prefix ('.') . 'approval.staff.create');
         @endphp
         <div class="layui-card-body">
             <form class="layui-form" lay-filter="myform"
@@ -22,20 +22,20 @@
                                value=""
                                title="本人申请"
                                lay-filter="radio-type"
-                               @if((isset($id) && empty($model->employee_id)) || !isset($id)) checked="" @endif>
+                               @if((isset($id) && empty($model->staff_id)) || !isset($id)) checked="" @endif>
                         <input type="radio"
                                name="type"
-                               value="proxy_user_id"
+                               value="proxy_staff_id"
                                title="代理申请"
                                lay-filter="radio-type"
-                               @if(isset($id) && !empty($model->proxy_user_id)) checked="" @endif>
+                               @if(isset($id) && !empty($model->proxy_staff_id)) checked="" @endif>
                     </div>
                 </div>
                 <div class="layui-form-item related-to-user"
-                     @if((isset($id) && empty($model->proxy_user_id)) || !isset($id)) style="display:none;" @endif>
+                     @if((isset($id) && empty($model->proxy_staff_id)) || !isset($id)) style="display:none;" @endif>
                     <label class="layui-form-label">代理人</label>
                     <div class="layui-input-block">
-                        <div class="xm-select-employee"></div>
+                        <div class="xm-select-staff"></div>
                     </div>
                 </div>
                 <div class="layui-form-item">
@@ -94,47 +94,47 @@
         });
 
         (function () {
-            let has_employee_xm = false;
+            let has_staff_xm = false;
             xmSelect.render ({
-                el: '.layui-form .layui-input-block .xm-select-employee',
+                el: '.layui-form .layui-input-block .xm-select-staff',
                 prop: {
                     name: 'name',
                     value: 'id',
                 },
                 radio: true,
-                name: 'employee_id',
+                name: 'staff_id',
                 autoRow: true,
                 clickClose: true,
                 delay: 500,
                 filterable: true,
                 searchTips: '按名称搜索员工',
                 empty: '没有更多可选的员工',
-                tips: '{{ isset ($model->employee) ? $model->employee->name : '请选择代理人'}}',
+                tips: '{{ isset ($model->staff) ? $model->staff->name : '请选择代理人'}}',
                 remoteSearch: true,
                 remoteMethod: function (val, cb, show) {
 
                     $.ajax({
-                        url: '{{ route('admin::' . module_route_prefix ('.') . 'approval.employee.list') }}?limit=99999&keyword=' + val,
+                        url: '{{ route('admin::' . module_route_prefix ('.') . 'approval.staff.list') }}?limit=99999&keyword=' + val,
                         type: 'GET',
                         success: function (result) {
 
-                            if (! has_employee_xm)
+                            if (! has_staff_xm)
                             {
-                                has_employee_xm = (result.data && result.data.length > 0);
+                                has_staff_xm = (result.data && result.data.length > 0);
                             }
 
-                            if (has_employee_xm)
+                            if (has_staff_xm)
                             {
-                                @if(isset ($id) && isset ($model->employee_id))
-                                result.data.forEach ((d, k)=>{ if ((d.id + '') === '{{ $model->employee_id }}') d.selected = true; });
+                                @if(isset ($id) && isset ($model->staff_id))
+                                result.data.forEach ((d, k)=>{ if ((d.id + '') === '{{ $model->staff_id }}') d.selected = true; });
                                 @endif
                                 cb (result.data);
                             } else {
-                                $ ('.layui-input-inline .xm-select-employee')
+                                $ ('.layui-input-inline .xm-select-staff')
                                     .hide ()
                                     .parent ()
-                                    @if(isset ($menu_employee) && ($is_super_admin || $user->can($menu_employee->name)))
-                                    .append ('<div class="layui-input layui-bg-gray" style="line-height: 35px;"><a class="layui-table-link" href="{{ route ('admin::' . module_route_prefix ('.') . 'approval.employee.create') }}">新增一个员工</a></div>')
+                                    @if(isset ($menu_staff) && ($is_super_admin || $user->can($menu_staff->name)))
+                                    .append ('<div class="layui-input layui-bg-gray" style="line-height: 35px;"><a class="layui-table-link" href="{{ route ('admin::' . module_route_prefix ('.') . 'approval.staff.create') }}">新增一个员工</a></div>')
                                     @else
                                     .append ('<div class="layui-form-mid layui-word-aux">请联系管理员新增一个员工，然后再新建申请</div>')
                                 @endif

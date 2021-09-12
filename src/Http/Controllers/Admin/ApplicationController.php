@@ -17,7 +17,7 @@ use Illuminate\View\View;
 
 class ApplicationController extends BaseController
 {
-    protected $formNames = ['name', 'proxy_user_id', 'project_id'];
+    protected $formNames = ['name', 'proxy_staff_id', 'project_id'];
 
     public function __construct ()
     {
@@ -87,7 +87,7 @@ class ApplicationController extends BaseController
     {
         try {
             $data = $request->only ($this->formNames);
-            $data ['employee_id'] = $this->employee->id;
+            $data ['staff_id'] = $this->staff->id;
             $data ['status'] = Application::STATUS_SUBMITTED;
             ApplicationRepository::add ($request->only ($this->formNames));
             return [
@@ -128,7 +128,7 @@ class ApplicationController extends BaseController
      */
     public function update (ApplicationRequest $request, $id)
     {
-        $data = $request->only (['proxy_user_id']);
+        $data = $request->only (['proxy_staff_id']);
         try {
             ApplicationRepository::update ($id, $data);
             return [
@@ -195,8 +195,8 @@ class ApplicationController extends BaseController
             $application->admin_user_id = $user->id;
             $application->path = $res [ 'path' ];
             $application->display = $res [ 'origin' ];
-            if ($request->proxy_user_id) {
-                $application->admin_user_id = $request->proxy_user_id;
+            if ($request->proxy_staff_id) {
+                $application->admin_user_id = $request->proxy_staff_id;
                 $application->proxy_user_id = $user->id;
             }
             $application->project_id = $request->project_id;
@@ -226,9 +226,9 @@ class ApplicationController extends BaseController
     {
         $application = Application::find ($request->id);
         // 申请者提交，必须是本人
-        if (($application->isBelongToEmployee ($this->employee) || $application->isBelongToProxy ($this->employee))) {
+        if (($application->isBelongToStaff ($this->staff) || $application->isBelongToProxy ($this->staff))) {
             $application->status = Application::STATUS_SUBMITTED;
-            $application->addNote (date ('Y-m-d H:i:s') . '「' . $this->employee->display . '」提交了的申请');
+            $application->addNote (date ('Y-m-d H:i:s') . '「' . $this->staff->display . '」提交了的申请');
             $result = $application->save ();
             if ($result > 0) {
                 return [
@@ -350,10 +350,10 @@ class ApplicationController extends BaseController
         $user = \Auth::user ();
         if ($user->isSuperAdmin ()
             || ($application
-                && ($application->isBelongToEmployee ($this->employee)
-                    || $application->isBelongToProxy ($this->employee)
+                && ($application->isBelongToStaff ($this->staff)
+                    || $application->isBelongToProxy ($this->staff)
                     || $user->isApplicationOperatorParentUser ($application)
-                    || $application->project->isEmployeeInCrews ($this->employee)))
+                    || $application->project->isStaffInCrews ($this->staff)))
         ) {
             $audits = $application->audits;
             if (isset ($audits)) {

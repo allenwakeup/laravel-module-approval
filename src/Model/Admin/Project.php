@@ -86,10 +86,10 @@ class Project extends Model
         });
     }
 
-    public function isEmployeeInCrews ($employee, $application = null)
+    public function isStaffInCrews ($staff, $application = null)
     {
         foreach ($this->crews as $crew) {
-            if ($crew->isBelongToCrew ($employee, $application)) {
+            if ($crew->isBelongToCrew ($staff, $application)) {
                 return true;
             }
         }

@@ -16,7 +16,7 @@ use Illuminate\View\View;
 
 class TeamController extends BaseController
 {
-    protected $formNames = ['name', 'project_id', 'departments', 'employees', 'to', 'order'];
+    protected $formNames = ['name', 'project_id', 'departments', 'staff', 'to', 'order'];
 
     public function __construct ()
     {

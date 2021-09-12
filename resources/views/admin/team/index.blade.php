@@ -20,7 +20,7 @@
                         updatereq="{{ route ('admin::' . module_route_prefix ('.') . 'approval.team.update', ['id'=>':id']) }}"
                         postreq="{{ route ('admin::' . module_route_prefix ('.') . 'approval.team.save') }}"
                         deletereq="{{ route ('admin::' . module_route_prefix ('.') . 'approval.team.delete', ['id'=>':id']) }}"
-                        selectadminuserreq="{{ route ('admin::' . module_route_prefix ('.') . 'approval.employee.list') }}?type=user"
+                        selectadminuserreq="{{ route ('admin::' . module_route_prefix ('.') . 'approval.staff.list') }}?type=user"
                         selectdepartmentreq="{{ route ('admin::' . module_route_prefix ('.') . 'core.department.list') }}"
                 ></team>
 

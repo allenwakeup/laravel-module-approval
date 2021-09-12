@@ -8,15 +8,15 @@
 
 namespace Goodcatch\Modules\Approval\Repositories\Admin;
 
-use Goodcatch\Modules\Approval\Model\Admin\Employee;
+use Goodcatch\Modules\Approval\Model\Admin\Staff;
 use Goodcatch\Modules\Core\Model\Admin\Department;
 
-class EmployeeRepository extends BaseRepository
+class StaffRepository extends BaseRepository
 {
 
     public static function list ($perPage, $condition = [])
     {
-        $data = Employee::query ()
+        $data = Staff::query ()
             ->with (['department', 'parent.department'])
             ->where (function ($query) use ($condition)
             {
@@ -27,8 +27,8 @@ class EmployeeRepository extends BaseRepository
         $data->transform (function ($item)
         {
             xssFilter ($item);
-            $item->editUrl = route ('admin::' . module_route_prefix ('.') . 'approval.employee.edit', ['id' => $item->id]);
-            $item->deleteUrl = route ('admin::' . module_route_prefix ('.') . 'approval.employee.delete', ['id' => $item->id]);
+            $item->editUrl = route ('admin::' . module_route_prefix ('.') . 'approval.staff.edit', ['id' => $item->id]);
+            $item->deleteUrl = route ('admin::' . module_route_prefix ('.') . 'approval.staff.delete', ['id' => $item->id]);
             return $item;
         });
 
@@ -44,15 +44,15 @@ class EmployeeRepository extends BaseRepository
     {
         $data = \collect ([]);
         if ($type === 'user') {
-            $data = Employee::query ()
+            $data = Staff::query ()
                 ->with ('department')
                 ->where ('name', 'like', "%$keyword%")
                 ->orderBy ('name', 'asc')
                 ->get ();
 
             if (strlen ($keyword) > 1) {
-                $deps = Department::query ()
-                    ->with ('employees')
+                $deps = Staff::query ()
+                    ->with ('staff')
                     ->where ('name', 'like', "%$keyword%")
                     ->orderBy ('name', 'asc')
                     ->get ();
@@ -60,12 +60,12 @@ class EmployeeRepository extends BaseRepository
                     $deps->each (function ($item, $key) use (&$data)
                     {
 
-                        if ($item->Employees->count () > 0) {
-                            $Employee = new Employee;
-                            $Employee->name = $item->name;
-                            $Employee->type = 'optgroup';
-                            $data->push ($Employee);
-                            $data = $data->merge ($item->Employees);
+                        if ($item->staff->count () > 0) {
+                            $staff = new Staff;
+                            $staff->name = $item->name;
+                            $staff->type = 'optgroup';
+                            $data->push ($staff);
+                            $data = $data->merge ($item->staff);
                         }
                     });
                 }
@@ -75,7 +75,7 @@ class EmployeeRepository extends BaseRepository
 
             if ($keyword && array_has ($columnMapping, $keyword)) {
                 $columnName = ['title' => 'title', 'rank' => 'rank'] [ $keyword ];
-                $data = Employee::query ()
+                $data = Staff::query ()
                     ->select ("$columnName as value", "$columnName as name")
                     ->whereNotNull ($columnName)
                     ->groupBy ($columnName)
@@ -94,26 +94,26 @@ class EmployeeRepository extends BaseRepository
 
     public static function add ($data)
     {
-        return Employee::query ()->create ($data);
+        return Staff::query ()->create ($data);
     }
 
     public static function update ($id, $data)
     {
-        return Employee::query ()->where ('id', $id)->update ($data);
+        return Staff::query ()->where ('id', $id)->update ($data);
     }
 
     public static function find ($id)
     {
-        return Employee::query ()->find ($id);
+        return Staff::query ()->find ($id);
     }
 
     public static function delete($id)
     {
-        return Employee::destroy($id);
+        return Staff::destroy($id);
     }
 
     public static function findByAdminUser ($admin_user)
     {
-        return Employee::query ()->where ('admin_user_id', $admin_user)->first ();
+        return Staff::query ()->where ('admin_user_id', $admin_user)->first ();
     }
 }

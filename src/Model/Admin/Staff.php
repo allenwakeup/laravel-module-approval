@@ -9,8 +9,9 @@
 namespace Goodcatch\Modules\Approval\Model\Admin;
 
 
-class Employee extends Model
+class Staff extends Model
 {
+
 
 
     const STATUS_ENABLE = 1;
@@ -24,6 +25,16 @@ class Employee extends Model
     protected $guarded = [];
 
     protected $guard_name = 'admin';
+
+
+    /**
+     * The table associated with the model.
+     * 扩展核心模块的员工表
+     *
+     * @var string
+     */
+    protected $table = 'core_staff';
+
 
     public static $searchField = [
         'name'       => '用户名',
@@ -134,12 +145,12 @@ class Employee extends Model
 
     public function parent ()
     {
-        return $this->belongsTo ('Goodcatch\Modules\Approval\Model\Admin\Employee', 'pid');
+        return $this->belongsTo ('Goodcatch\Modules\Approval\Model\Admin\Staff', 'pid');
     }
 
     public function children ()
     {
-        return $this->hasMany ('Goodcatch\Modules\Approval\Model\Admin\Employee', 'pid');
+        return $this->hasMany ('Goodcatch\Modules\Approval\Model\Admin\Staff', 'pid');
     }
 
 
@@ -206,7 +217,7 @@ class Employee extends Model
         $can_approvel = $this->can ('更新审批');
         $do_approval_application = isset($application);
         if ($do_approval_application) {
-            $do_approval_application = $application->project->isEmployeeInCrews ($this, $application);
+            $do_approval_application = $application->project->isStaffInCrews ($this, $application);
         }
 
         return $can_approvel && $do_approval_application;

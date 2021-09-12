@@ -16,7 +16,7 @@
                     updatereq="{{ route ('admin::' . module_route_prefix ('.') . 'approval.crew.update', ['id'=>':id']) }}"
                     postreq="{{ route ('admin::' . module_route_prefix ('.') . 'approval.crew.save') }}"
                     deletereq="{{ route ('admin::' . module_route_prefix ('.') . 'approval.crew.delete', ['id'=>':id']) }}"
-                    selectadminuserreq="{{ route ('admin::' . module_route_prefix ('.') . 'approval.employee.list') }}"
+                    selectadminuserreq="{{ route ('admin::' . module_route_prefix ('.') . 'approval.staff.list') }}"
                     ></crew>
 
         </div>

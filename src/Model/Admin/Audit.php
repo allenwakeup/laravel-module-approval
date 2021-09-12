@@ -69,7 +69,7 @@ class Audit extends Model
 
     public function operator ()
     {
-        return $this->hasOne ('Goodcatch\Modules\Approval\Model\Admin\Employee', 'employee_id');
+        return $this->hasOne ('Goodcatch\Modules\Approval\Model\Admin\Staff', 'staff_id');
     }
 
     /**
@@ -78,7 +78,7 @@ class Audit extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
-    public function crewnow ()
+    public function crewNow ()
     {
         return $this->hasOne ('Goodcatch\Modules\Approval\Model\Admin\Crew', 'id', 'crew_id');
     }
@@ -86,7 +86,7 @@ class Audit extends Model
     public function isAbnormal ()
     {
         $snapshot_crew_id = isset ($this->crew) ? $this->crew[ 'id' ] : - 1;
-        $snapshot_employee_id = isset ($this->employee) ? $this->employee[ 'id' ] : - 1;
-        return $snapshot_crew_id !== $this->crew_id || $snapshot_employee_id !== $this->employee_id;
+        $snapshot_staff_id = isset ($this->staff) ? $this->staff[ 'id' ] : - 1;
+        return $snapshot_crew_id !== $this->crew_id || $snapshot_staff_id !== $this->staff_id;
     }
 }

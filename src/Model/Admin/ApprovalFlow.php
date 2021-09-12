@@ -39,7 +39,7 @@ abstract class ApprovalFlow extends Model
             'sort' => true,
             'templet' => '#project_tpl'
         ],
-        'employee' => [
+        'staff' => [
             'title' => '申请人',
             'width' => 150,
             'sort' => true,
@@ -72,12 +72,12 @@ abstract class ApprovalFlow extends Model
 
     public function applier ()
     {
-        return $this->belongsTo('Goodcatch\Modules\Approval\Model\Admin\Employee', 'employee_id');
+        return $this->belongsTo('Goodcatch\Modules\Approval\Model\Admin\Staff', 'staff_id');
     }
 
     public function proxy ()
     {
-        return $this->belongsTo('Goodcatch\Modules\Approval\Model\Admin\Employee', 'proxy_user_id');
+        return $this->belongsTo('Goodcatch\Modules\Approval\Model\Admin\Staff', 'proxy_staff_id');
     }
 
     public function project ()
@@ -131,20 +131,20 @@ abstract class ApprovalFlow extends Model
      * 申请属于当前登录用户
      * @return bool
      */
-    public function isBelongToEmployee ($employee)
+    public function isBelongToStaff ($staff)
     {
-        return isset ($employee) && $employee->id === $this->applier->id;
+        return isset ($staff) && $staff->id === $this->applier->id;
     }
 
     /**
      * 申请代理人属于当前登录用户
      * @return bool
      */
-    public function isBelongToProxy ($employee)
+    public function isBelongToProxy ($staff)
     {
-        if (isset ($employee) && isset ($this->proxy))
+        if (isset ($staff) && isset ($this->proxy))
         {
-            return $this->proxy->id === $employee->id;
+            return $this->proxy->id === $staff->id;
         }
         return false;
     }
@@ -169,7 +169,7 @@ abstract class ApprovalFlow extends Model
             foreach ($this->project->sortedteams() as $team)
             {
                 $last_crew = null;
-                foreach($team->sortedcrews as $crew)
+                foreach($team->sorted_crews as $crew)
                 {
                     // 用户必须符合审批环节的身份条件
                     if ($crew->isBelongToCrew ($user, $this))

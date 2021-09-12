@@ -10,22 +10,22 @@
 
 namespace Goodcatch\Modules\Approval\Http\Controllers\Admin;
 
-use Goodcatch\Modules\Approval\Repositories\Admin\EmployeeRepository;
+use Goodcatch\Modules\Approval\Repositories\Admin\StaffRepository;
 use Goodcatch\Modules\Lightcms\Http\Controllers\Controller;
 use Illuminate\Support\Facades\View;
 
 class BaseController extends Controller
 {
 
-    protected $employee;
+    protected $staff;
 
     public function __construct ()
     {
         parent::__construct ();
 
-        $this->employee = tap (EmployeeRepository::findByAdminUser (\Auth::guard ('admin')->user ()), function ($employee)
+        $this->staff = tap (StaffRepository::findByAdminUser (\Auth::guard ('admin')->user ()), function ($staff)
         {
-            View::share ('admin_employee', $employee);
+            View::share ('admin_staff', $staff);
         });
 
         $this->login_user = $user = \Auth::guard ('admin')->user ();

@@ -5,7 +5,7 @@
 
         @include('admin.breadcrumb')
         <div class="layui-card-body">
-            <form class="layui-form" action="@if(isset($id)){{ route ('admin::' . module_route_prefix ('.') . 'approval.employee.update', ['id' => $id]) }}@else{{ route ('admin::' . module_route_prefix ('.') . 'approval.employee.save') }}@endif" method="post">
+            <form class="layui-form" action="@if(isset($id)){{ route ('admin::' . module_route_prefix ('.') . 'approval.staff.update', ['id' => $id]) }}@else{{ route ('admin::' . module_route_prefix ('.') . 'approval.staff.save') }}@endif" method="post">
                 @if(isset($id)) {{ method_field('PUT') }} @endif
                 <div class="layui-form-item">
                     <div class="layui-inline">
@@ -31,9 +31,9 @@
                     <div class="layui-inline">
                         <label class="layui-form-label">性别</label>
                         <div class="layui-input-block">
-                            <input type="radio" name="gender" value="{{\Goodcatch\Modules\Approval\Model\Admin\Employee::GENDER_MALE}}" title="男" @if(($model->gender ?? -1) === \Goodcatch\Modules\Approval\Model\Admin\Employee::GENDER_MALE)checked=""@endif>
-                            <input type="radio" name="gender" value="{{\Goodcatch\Modules\Approval\Model\Admin\Employee::GENDER_FEMALE}}" title="女" @if(($model->gender ?? -1)  === \Goodcatch\Modules\Approval\Model\Admin\Employee::GENDER_FEMALE)checked=""@endif>
-                            <input type="radio" name="gender" value="{{\Goodcatch\Modules\Approval\Model\Admin\Employee::GENDER_UNKNOWN}}" title="其他" @if(($model->gender ?? -1)  === \Goodcatch\Modules\Approval\Model\Admin\Employee::GENDER_UNKNOWN)checked=""@endif>
+                            <input type="radio" name="gender" value="{{\Goodcatch\Modules\Approval\Model\Admin\Staff::GENDER_MALE}}" title="男" @if(($model->gender ?? -1) === \Goodcatch\Modules\Approval\Model\Admin\Staff::GENDER_MALE)checked=""@endif>
+                            <input type="radio" name="gender" value="{{\Goodcatch\Modules\Approval\Model\Admin\Staff::GENDER_FEMALE}}" title="女" @if(($model->gender ?? -1)  === \Goodcatch\Modules\Approval\Model\Admin\Staff::GENDER_FEMALE)checked=""@endif>
+                            <input type="radio" name="gender" value="{{\Goodcatch\Modules\Approval\Model\Admin\Staff::GENDER_UNKNOWN}}" title="其他" @if(($model->gender ?? -1)  === \Goodcatch\Modules\Approval\Model\Admin\Staff::GENDER_UNKNOWN)checked=""@endif>
                         </div>
                     </div>
                 </div>
@@ -111,12 +111,12 @@
                 <div class="layui-form-item">
                     <label class="layui-form-label">是否启用</label>
                     <div class="layui-input-block">
-                        <input type="checkbox" name="status" lay-skin="switch" lay-text="启用|禁用" value="1" @if(isset($model) && $model->status == Goodcatch\Modules\Approval\Model\Admin\Employee::STATUS_ENABLE) checked @endif>
+                        <input type="checkbox" name="status" lay-skin="switch" lay-text="启用|禁用" value="1" @if(isset($model) && $model->status == Goodcatch\Modules\Approval\Model\Admin\Staff::STATUS_ENABLE) checked @endif>
                     </div>
                 </div>
                 <div class="layui-form-item">
                     <div class="layui-input-block">
-                        <button class="layui-btn" lay-submit lay-filter="formEmployee" id="submitBtn">提交</button>
+                        <button class="layui-btn" lay-submit lay-filter="formStaff" id="submitBtn">提交</button>
                         <button type="reset" class="layui-btn layui-btn-primary">重置</button>
                     </div>
                 </div>
@@ -155,13 +155,13 @@
         });
 
         //监听提交
-        form.on('submit(formEmployee)', function(data){
+        form.on('submit(formStaff)', function(data){
             window.form_submit = $('#submitBtn');
             form_submit.prop('disabled', true);
 
             if (! data.field.status)
             {
-                data.field.status = {{Goodcatch\Modules\Approval\Model\Admin\Employee::STATUS_DISABLE}};
+                data.field.status = {{Goodcatch\Modules\Approval\Model\Admin\Staff::STATUS_DISABLE}};
             }
 
             if (! data.field.pid)
@@ -284,7 +284,7 @@
                 remoteMethod: function (val, cb, show) {
 
                     $.ajax({
-                        url: '{{ route('admin::' . module_route_prefix ('.') . 'approval.employee.list') }}',
+                        url: '{{ route('admin::' . module_route_prefix ('.') . 'approval.staff.list') }}',
                         type: 'GET',
                         data: {
                             limit: 99999,

@@ -57,7 +57,7 @@
                                 <div class="layui-form-item" v-show="showPeople" >
                                     <label class="layui-form-label">人员</label>
                                     <div class="layui-input-block">
-                                        <div class="xm-select-employees"></div>
+                                        <div class="xm-select-staff"></div>
                                     </div>
                                 </div>
                                 <div class="layui-form-item">
@@ -154,7 +154,7 @@
                         name: '多个部门', value:'departments'
                     },
                     {
-                        name: '指定人员', value:'employees'
+                        name: '指定人员', value:'staffs'
                     }
                 ],
                 showDept: false,
@@ -284,13 +284,13 @@
                     (function () {
 
                         xmSelect.render ({
-                            el: '.layui-form .layui-input-block .xm-select-employees',
+                            el: '.layui-form .layui-input-block .xm-select-staff',
                             prop: {
                                 name: 'name',
                                 value: 'id',
                             },
                             radio: true,
-                            name: 'employees',
+                            name: 'staff',
                             theme: {
                                 color: window.GC_XM_SELECT_COLOR || '#1cbbb4',
                             },
@@ -334,7 +334,7 @@
                         this.showDept = true;
                         this.showPeople = false;
                         break;
-                    case 'employees':
+                    case 'staffs':
                         this.showDept = false;
                         this.showPeople = true;
                         break;

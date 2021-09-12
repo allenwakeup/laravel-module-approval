@@ -42,7 +42,7 @@ class Application extends ApprovalFlow
             'sort' => true,
             'templet' => '#project_tpl'
         ],
-        'employee' => [
+        'staff' => [
             'title' => '申请人',
             'width' => 150,
             'sort' => true,

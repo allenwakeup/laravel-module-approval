@@ -9,14 +9,14 @@
 namespace Goodcatch\Modules\Approval\Http\Controllers\Admin;
 
 use Goodcatch\Modules\Lightcms\Http\Controllers\Controller;
-use Goodcatch\Modules\Approval\Http\Requests\Admin\EmployeeRequest;
-use Goodcatch\Modules\Approval\Model\Admin\Employee;
-use Goodcatch\Modules\Approval\Repositories\Admin\EmployeeRepository;
+use Goodcatch\Modules\Approval\Http\Requests\Admin\StaffRequest;
+use Goodcatch\Modules\Approval\Model\Admin\Staff;
+use Goodcatch\Modules\Approval\Repositories\Admin\StaffRepository;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
-class EmployeeController extends Controller
+class StaffController extends Controller
 {
     protected $formNames = ['pid', 'code', 'name', 'birthday', 'gender', 'mobile', 'email', 'social1', 'social2', 'social3', 'social4', 'social5', 'title', 'rank', 'hired', 'workday', 'department_id', 'status'];
 
@@ -24,7 +24,7 @@ class EmployeeController extends Controller
     {
         parent::__construct ();
 
-        $this->breadcrumb[] = ['title' => '主数据管理', 'url' => route ('admin::' . module_route_prefix ('.') . 'approval.employee.index')];
+        $this->breadcrumb[] = ['title' => '主数据管理', 'url' => route ('admin::' . module_route_prefix ('.') . 'approval.staff.index')];
     }
 
     /**
@@ -34,7 +34,7 @@ class EmployeeController extends Controller
     public function index ()
     {
         $this->breadcrumb[] = ['title' => '员工列表', 'url' => ''];
-        return view ('approval::admin.employee.index', ['breadcrumb' => $this->breadcrumb]);
+        return view ('approval::admin.staff.index', ['breadcrumb' => $this->breadcrumb]);
     }
 
     /**
@@ -49,12 +49,12 @@ class EmployeeController extends Controller
         $perPage = (int) $request->get ('limit', 50);
         $condition = $request->only ($this->formNames);
         if ($type) {
-            $data = EmployeeRepository::selectUser ($perPage, $request->keyword, $type);
+            $data = StaffRepository::selectUser ($perPage, $request->keyword, $type);
 
         }
         else {
 
-            $data = EmployeeRepository::list ($perPage, $condition);
+            $data = StaffRepository::list ($perPage, $condition);
         }
         return $data;
     }
@@ -66,19 +66,19 @@ class EmployeeController extends Controller
     public function create ()
     {
         $this->breadcrumb[] = ['title' => '新增员工', 'url' => ''];
-        return view ('approval::admin.employee.add', ['breadcrumb' => $this->breadcrumb]);
+        return view ('approval::admin.staff.add', ['breadcrumb' => $this->breadcrumb]);
     }
 
     /**
      * 主数据管理-保存员工
      *
-     * @param EmployeeRequest $request
+     * @param StaffRequest $request
      * @return array
      */
-    public function save (EmployeeRequest $request)
+    public function save (StaffRequest $request)
     {
         try {
-            $user = EmployeeRepository::add ($request->only ($this->formNames));
+            $user = StaffRepository::add ($request->only ($this->formNames));
             return [
                 'code'     => 0,
                 'msg'      => '新增成功',
@@ -104,29 +104,29 @@ class EmployeeController extends Controller
     {
         $this->breadcrumb[] = ['title' => '编辑员工', 'url' => ''];
 
-        $user = EmployeeRepository::find ($id);
-        return view ('approval::admin.employee.add', ['id' => $id, 'model' => $user, 'breadcrumb' => $this->breadcrumb]);
+        $user = StaffRepository::find ($id);
+        return view ('approval::admin.staff.add', ['id' => $id, 'model' => $user, 'breadcrumb' => $this->breadcrumb]);
     }
 
     /**
      * 主数据管理-更新员工
      *
-     * @param EmployeeRequest $request
+     * @param StaffRequest $request
      * @param int $id
      * @return array
      */
-    public function update (EmployeeRequest $request, $id)
+    public function update (StaffRequest $request, $id)
     {
         $data = $request->only ($this->formNames);
         if (! isset($data[ 'status' ])) {
-            $data[ 'status' ] = Employee::STATUS_DISABLE;
+            $data[ 'status' ] = Staff::STATUS_DISABLE;
         }
         if ($request->input ('password') == '') {
             unset($data[ 'password' ]);
         }
 
         try {
-            EmployeeRepository::update ($id, $data);
+            StaffRepository::update ($id, $data);
             return [
                 'code'     => 0,
                 'msg'      => '编辑成功',
@@ -150,11 +150,11 @@ class EmployeeController extends Controller
     public function delete ($id)
     {
         try {
-            EmployeeRepository::delete ($id);
+            StaffRepository::delete ($id);
             return [
                 'code'     => 0,
                 'msg'      => '删除成功',
-                'redirect' => route ('admin::' . module_route_prefix ('.') . 'approval.employee.index')
+                'redirect' => route ('admin::' . module_route_prefix ('.') . 'approval.staff.index')
             ];
         }
         catch (\RuntimeException $e) {

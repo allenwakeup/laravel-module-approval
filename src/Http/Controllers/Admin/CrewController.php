@@ -6,7 +6,7 @@
 namespace Goodcatch\Modules\Approval\Http\Controllers\Admin;
 
 use Goodcatch\Modules\Approval\Http\Requests\Admin\CrewRequest;
-use Goodcatch\Modules\Approval\Model\Admin\Employee;
+use Goodcatch\Modules\Approval\Model\Admin\Staff;
 use Goodcatch\Modules\Approval\Model\Admin\Crew;
 use Goodcatch\Modules\Approval\Repositories\Admin\CrewRepository;
 use Illuminate\Database\QueryException;
@@ -86,17 +86,17 @@ class CrewController extends BaseController
             $crew->rank = $request->rank ?? '';
 
             if ($request->people && ! empty(trim ($request->people))) {
-                $employee_ids = explode (',', $request->people);
-                $employees = Employee::whereIn ('id', $employee_ids)->get ()->toArray ();
+                $staff_ids = explode (',', $request->people);
+                $staff = Staff::whereIn ('id', $staff_ids)->get ()->toArray ();
 
-                if (isset ($employees [ 0 ])) {
-                    $crew->employee_primary = $employees [ 0 ][ 'id' ];
+                if (isset ($staff [ 0 ])) {
+                    $crew->staff_primary = $staff [ 0 ][ 'id' ];
                 }
-                if (isset ($employees [ 1 ])) {
-                    $crew->employee_secondary = $employees [ 1 ][ 'id' ];
+                if (isset ($staff [ 1 ])) {
+                    $crew->staff_secondary = $staff [ 1 ][ 'id' ];
                 }
-                if (isset ($employees [ 2 ])) {
-                    $crew->employee_other = $employees [ 2 ][ 'id' ];
+                if (isset ($staff [ 2 ])) {
+                    $crew->staff_other = $staff [ 2 ][ 'id' ];
                 }
 
             }

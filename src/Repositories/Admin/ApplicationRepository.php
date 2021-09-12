@@ -14,7 +14,7 @@ class ApplicationRepository extends BaseRepository
     public static function list($perPage, $condition = [], $with_content = false)
     {
         $user = \Auth::user();
-        $columns = ['id', 'name', 'admin_user_id', 'proxy_user_id', 'project_id', 'path', 'display', 'convert_status', 'status', 'order', 'created_at', 'updated_at'];
+        $columns = ['id', 'name', 'admin_user_id', 'proxy_staff_id', 'project_id', 'path', 'display', 'convert_status', 'status', 'order', 'created_at', 'updated_at'];
         if ($with_content)
         {
             $columns [] = 'content';
@@ -27,7 +27,7 @@ class ApplicationRepository extends BaseRepository
                 if (! $user->isSuperAdmin ())
                 {
                     $query->where('admin_user_id', $user->id)
-                        ->orWhere('proxy_user_id', $user->id);
+                        ->orWhere('proxy_staff_id', $user->id);
                 }
             })
             ->orderBy('id', 'desc')

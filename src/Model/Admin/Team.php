@@ -31,7 +31,7 @@ class Team extends Model
         return $this->hasMany ('Goodcatch\Modules\Approval\Model\Admin\Crew', 'team_id');
     }
 
-    public function sortedcrews ()
+    public function sortedCrews ()
     {
         return $this->crews->sortBy (function ($crew, $key) {
             return $crew->order;
