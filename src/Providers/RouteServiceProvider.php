@@ -23,7 +23,7 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
-    protected $namespace = 'Goodcatch\\Modules\\Approval\\Http\\Controllers\\';
+    protected $namespace = 'Goodcatch\\Modules\\Approval\\Http\\Controllers';
 
     protected $path;
 
@@ -59,6 +59,22 @@ class RouteServiceProvider extends ServiceProvider
     public function map ()
     {
         $this->mapApiRoutes();
+
+        $this->mapWebRoutes();
+    }
+
+    /**
+     * Define the "web" routes for the application.
+     *
+     * These routes all receive session state, CSRF protection, etc.
+     *
+     * @return void
+     */
+    protected function mapWebRoutes()
+    {
+        Route::middleware('web')
+            ->namespace($this->namespace)
+            ->group($this->getPath ());
     }
 
     /**
