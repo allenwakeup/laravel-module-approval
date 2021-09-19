@@ -211,12 +211,12 @@ export default {
         // 退出后台
         logout(){
             const vm = this;
+
             this.$get(this.$api.adminLogout).then(res=>{
                 this.$message.success(res.msg);
-
                 vm.storeLogout();
+                setTimeout(function() {window.location.href = '/Admin/login';}, 1000);
 
-                this.$router.push('/Admin/login');
             })
         },
 
