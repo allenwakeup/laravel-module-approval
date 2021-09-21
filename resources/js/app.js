@@ -33,9 +33,8 @@ Vue.prototype.$hasRoute=hasRoute; // 是否存在路由
 Vue.config.productionTip = false;
 
 // 字体图标 iconFont
-let fontjs = require('@/plugins/font');
 const AFont = Icon.createFromIconfontCN({
-    scriptUrl: fontjs,
+    scriptUrl: '/assets/fonts/iconfont.js',
 });
 Vue.use(Antd);
 Vue.component('a-font', AFont);

@@ -1,90 +1,92 @@
 <template>
 
-        <a-layout class="admin_index_main">
+    <a-layout class="admin_index_main">
 
-            <!-- 菜单 start -->
-            <a-layout-sider v-if="!subMenu" class="admin_menu" v-model="collapsed" :trigger="null" collapsible>
-                    <div class="base_shadow admin_menu_title"><span :class="collapsed?'hiddens':'shows'">基础模块</span></div>
-                    <a-menu mode="inline" theme="dark" :default-selected-keys="defaultSelectedKeys" :open-keys.sync="defaultOpenKeys">
-                        <a-menu-item @click="to_nav('/Admin/index', 0)"><a-font class="afont menu_icon" type="iconshouye" /><span>系统首页</span></a-menu-item>
-                        <a-sub-menu v-for="v in menus" :key="v.id + ''">
-                            <span slot="title"><a-font class="afont menu_icon" :type="v.icon||'iconshouye'" /><span>{{v.name}}</span></span>
-                            <template v-for="vo in (v.children||[])">
-                                <a-menu-item v-if="$isEmpty(vo.children) || vo.children.length===0" :key="vo.id + ''"  @click="to_nav(vo.link, vo.id)">{{vo.name}}</a-menu-item>
-                                <a-sub-menu v-else :key="vo.id + ''" :title="vo.name">
-                                    <a-menu-item  @click="to_nav(vo2.link, vo2.id)" v-for="vo2 in (vo.children||[])" :key="vo2.id + ''">{{vo2.name}}</a-menu-item>
-                                </a-sub-menu>
-                            </template>
+        <!-- 菜单 start -->
+        <a-layout-sider v-if="!subMenu" class="admin_menu" v-model="collapsed" :trigger="null" collapsible>
+            <div class="base_shadow admin_menu_title"><span :class="collapsed?'hiddens':'shows'">审批流模块</span></div>
+            <a-menu mode="inline" theme="dark" :default-selected-keys="defaultSelectedKeys" :open-keys.sync="defaultOpenKeys">
+                <a-menu-item @click="to_nav('/Admin/index', 0)"><a-font class="afont menu_icon" type="icon-gc-home" /><span>系统首页</span></a-menu-item>
+                <a-sub-menu v-for="v in menus" :key="v.id + ''">
+                    <span slot="title"><a-font class="afont menu_icon" :type="v.icon||'icon-gc-home'" /><span>{{v.name}}</span></span>
+                    <template v-for="vo in (v.children||[])">
+                        <a-menu-item v-if="$isEmpty(vo.children) || vo.children.length===0" :key="vo.id + ''"  @click="to_nav(vo.link, vo.id)"><a-font class="afont menu_icon" v-if="!!vo.icon" :type="vo.icon" />{{vo.name}}</a-menu-item>
+                        <a-sub-menu v-else :key="vo.id + ''">
+                            <span slot="title"><a-font class="afont menu_icon" v-if="!!vo.icon" :type="vo.icon" /><span>{{vo.name}}</span></span>
+                            <a-menu-item  @click="to_nav(vo2.link, vo2.id)" v-for="vo2 in (vo.children||[])" :key="vo2.id + ''"><a-font class="afont menu_icon" v-if="!!vo2.icon" :type="vo2.icon" />{{vo2.name}}</a-menu-item>
                         </a-sub-menu>
-                    </a-menu>
-            </a-layout-sider>
-            <!-- 菜单 end -->
+                    </template>
+                </a-sub-menu>
+            </a-menu>
+        </a-layout-sider>
+        <!-- 菜单 end -->
 
-            <!-- 右侧内容 start -->
-            <a-layout class="admin_right_content">
-                <a-layout-header :class="subMenu?'admin_right_top mobile':(collapsed?'admin_right_top small':'admin_right_top')">
-                    <div v-if="subMenu" class="admin_menu_title item_left float_left"></div>
-                    <a-icon class="base_font_size item_left float_left" :type="collapsed ? 'menu-unfold' : 'menu-fold'" @click="toggleCollapsed"/>
-                    <div class="item_right float_right">
-                        <a-dropdown>
-                            <div class="admin_top_person" @click="e => e.preventDefault()">
-                                <a-avatar class="avatar" size="small" icon="user" />
-                                <span>{{userInfo.nickname}}</span>
-                            </div>
-                            <a-menu slot="overlay">
-                                <a-menu-item key="0">
-                                    <a target="_blank" rel="noopener noreferrer" href="/">--</a>
-                                </a-menu-item>
-                                <a-menu-item key="1">
-                                    <a target="_blank" rel="noopener noreferrer" href="/">--</a>
-                                </a-menu-item>
-                                <a-menu-divider />
-                                <a-menu-item key="3" @click="logout">
-                                    <a-icon style="color:red" type="logout"></a-icon>
-                                    <font color="red">退出后台</font>
-                                </a-menu-item>
-                            </a-menu>
-                        </a-dropdown>
-                    </div>
-                    <div class="clear"></div>
-                </a-layout-header>
-
-                <!-- 主体内容 -->
-                <a-layout-content>
-                    <div :class="subMenu?'admin_content_view clear_m':'admin_content_view'" v-if="!isAdminDefault">
-                        <transition name="slide-fade">
-                            <router-view v-if="isRefresh"></router-view>
-                        </transition>
-                    </div>
-                    <div :class="subMenu?'admin_content_view2 clear_m':'admin_content_view2'" v-if="isAdminDefault">
-                        <transition name="slide-fade">
-                            <router-view v-if="isRefresh"></router-view>
-                        </transition>
-                    </div>
-                </a-layout-content>
-            </a-layout>
-            <!-- 右侧内容 end -->
-
-            <!-- 手机菜单 start -->
-            <a-drawer :body-style="{ padding: 0, height: '100%' }" placement="left" :closable="false" :visible="drawerShow" @close="onClose">
-                <div class="admin_menu mobile">
-                    <div class="admin_menu_title"><span :class="'shows'">基础模块</span></div>
-                        <a-menu mode="inline" theme="dark">
-
-                            <a-sub-menu v-for="v in menus" :key="v.id">
-                                <span slot="title"><a-font class="afont menu_icon" :type="v.icon||'iconshouye'" /><span>{{v.name}}</span></span>
-                                <template v-for="vo in (v.children||[])">
-                                    <a-menu-item v-if="$isEmpty(vo.children) || vo.children.length==0" :key="vo.id"  @click="to_nav(vo.link)">{{vo.name}}</a-menu-item>
-                                    <a-sub-menu v-else :key="vo.id" :title="vo.name">
-                                        <a-menu-item  @click="to_nav(vo2.link)" v-for="vo2 in (vo.children||[])" :key="vo2.id">{{vo2.name}}</a-menu-item>
-                                    </a-sub-menu>
-                                </template>
-                            </a-sub-menu>
+        <!-- 右侧内容 start -->
+        <a-layout class="admin_right_content">
+            <a-layout-header :class="subMenu?'admin_right_top mobile':(collapsed?'admin_right_top small':'admin_right_top')">
+                <div v-if="subMenu" class="admin_menu_title item_left float_left"></div>
+                <a-icon class="base_font_size item_left float_left" :type="collapsed ? 'menu-unfold' : 'menu-fold'" @click="toggleCollapsed"/>
+                <div class="item_right float_right">
+                    <a-dropdown>
+                        <div class="admin_top_person" @click="e => e.preventDefault()">
+                            <a-avatar class="avatar" size="small" icon="user" />
+                            <span>{{userInfo.nickname}}</span>
+                        </div>
+                        <a-menu slot="overlay">
+                            <a-menu-item key="0">
+                                <a target="_blank" rel="noopener noreferrer" href="/">--</a>
+                            </a-menu-item>
+                            <a-menu-item key="1">
+                                <a target="_blank" rel="noopener noreferrer" href="/">--</a>
+                            </a-menu-item>
+                            <a-menu-divider />
+                            <a-menu-item key="3" @click="logout">
+                                <a-icon style="color:red" type="logout"></a-icon>
+                                <font color="red">退出后台</font>
+                            </a-menu-item>
                         </a-menu>
+                    </a-dropdown>
                 </div>
-            </a-drawer>
-            <!-- 手机菜单 end -->
+                <div class="clear"></div>
+            </a-layout-header>
+
+            <!-- 主体内容 -->
+            <a-layout-content>
+                <div :class="subMenu?'admin_content_view clear_m':'admin_content_view'" v-if="!isAdminDefault">
+                    <transition name="slide-fade">
+                        <router-view v-if="isRefresh"></router-view>
+                    </transition>
+                </div>
+                <div :class="subMenu?'admin_content_view2 clear_m':'admin_content_view2'" v-if="isAdminDefault">
+                    <transition name="slide-fade">
+                        <router-view v-if="isRefresh"></router-view>
+                    </transition>
+                </div>
+            </a-layout-content>
         </a-layout>
+        <!-- 右侧内容 end -->
+
+        <!-- 手机菜单 start -->
+        <a-drawer :body-style="{ padding: 0, height: '100%' }" placement="left" :closable="false" :visible="drawerShow" @close="onClose">
+            <div class="admin_menu mobile">
+                <div class="admin_menu_title"><span :class="'shows'">审批流模块</span></div>
+                <a-menu mode="inline" theme="dark">
+                    <a-menu-item @click="to_nav('/Admin/index')"><a-font class="afont menu_icon" type="icon-gc-home" /><span>系统首页</span></a-menu-item>
+                    <a-sub-menu v-for="v in menus" :key="v.id">
+                        <span slot="title"><a-font class="afont menu_icon" :type="v.icon||'icon-gc-home'" /><span>{{v.name}}</span></span>
+                        <template v-for="vo in (v.children||[])">
+                            <a-menu-item v-if="$isEmpty(vo.children) || vo.children.length===0" :key="vo.id"  @click="to_nav(vo.link)"><a-font class="afont menu_icon" v-if="!!vo.icon" :type="vo.icon" />{{vo.name}}</a-menu-item>
+                            <a-sub-menu v-else :key="vo.id">
+                                <span slot="title"><a-font class="afont menu_icon" v-if="!!vo.icon" :type="vo.icon" /><span>{{vo.name}}</span></span>
+                                <a-menu-item  @click="to_nav(vo2.link)" v-for="vo2 in (vo.children||[])" :key="vo2.id"><a-font class="afont menu_icon" v-if="!!vo2.icon" :type="vo2.icon" />{{vo2.name}}</a-menu-item>
+                            </a-sub-menu>
+                        </template>
+                    </a-sub-menu>
+                </a-menu>
+            </div>
+        </a-drawer>
+        <!-- 手机菜单 end -->
+    </a-layout>
 
 
 
