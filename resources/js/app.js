@@ -16,7 +16,6 @@ import {returnInfo,formatFloat,hasRoute} from '@/plugins/function' // 辅助方�
 import VueLazyload from 'vue-lazyload' // 懒加载图片
 import 'babel-polyfill' // 兼容IE
 
-
 Vue.prototype.$api=api;
 Vue.prototype.$post=post;
 Vue.prototype.$get=get;

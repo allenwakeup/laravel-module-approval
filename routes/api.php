@@ -23,7 +23,7 @@ use Illuminate\Support\Facades\Route;
 Route::prefix('Admin')->group(function(){
     Route::namespace('Admin')->prefix('goodcatch')->group(function(){
         Route::prefix(module_route_prefix())->group(function(){
-            Route::prefix('core')->name('core.')->group(function(){
+            Route::prefix('approval')->name('approval.')->group(function(){
                 Route::group(['middleware'=>'jwt.admin'], function(){
 
                 });

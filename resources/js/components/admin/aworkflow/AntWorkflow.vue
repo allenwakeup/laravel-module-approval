@@ -4,12 +4,20 @@
     </div>
 </template>
 <script>
+    // 以下为bpmn工作流绘图工具的样式
+    import 'bpmn-js/dist/assets/diagram-js.css' // 左边工具栏以及编辑节点的样式
+    import 'bpmn-js/dist/assets/bpmn-font/css/bpmn.css'
+    import 'bpmn-js/dist/assets/bpmn-font/css/bpmn-codes.css'
+    import 'bpmn-js/dist/assets/bpmn-font/css/bpmn-embedded.css'
+    import 'diagram-js-minimap/assets/diagram-js-minimap.css'
+    // 大佬 自定义 properties-panel
+    // https://github.com/miyuesc/bpmn-process-designer
 
     // https://github.com/PL-FE/bpmn-doc/blob/main/README.md
     import BpmnJS from 'bpmn-js/lib/Modeler'
 
-    import propertiesPanelModule from 'bpmn-js-properties-panel'
-    import propertiesProviderModule from 'bpmn-js-properties-panel/lib/provider/camunda'
+    //import propertiesPanelModule from 'bpmn-js-properties-panel'
+    //import propertiesProviderModule from 'bpmn-js-properties-panel/lib/provider/camunda'
     import camundaModdleDescriptor from 'camunda-bpmn-moddle/resources/camunda'
 
     import {
@@ -39,11 +47,11 @@
                     },
                     additionalModules: [
                         // 右边的属性栏
-                        propertiesProviderModule,
-                        propertiesPanelModule
+                        //propertiesProviderModule,
+                        //propertiesPanelModule
                     ],
                     moddleExtensions: {
-                        camunda: camundaModdleDescriptor
+                        // camunda: camundaModdleDescriptor
                     }
                 })
                 this.createNewDiagram()
@@ -70,11 +78,6 @@
         }
     };
 </script>
-<style lang="css" scoped src="bpmn-js/dist/assets/diagram-js.css"></style>
-<style lang="css" scoped src="bpmn-js/dist/assets/bpmn-font/css/bpmn.css"></style>
-<style lang="css" scoped src="bpmn-js/dist/assets/bpmn-font/css/bpmn-codes.css"></style>
-<style lang="css" scoped src="bpmn-js/dist/assets/bpmn-font/css/bpmn-embedded.css"></style>
-<style lang="css" scoped src="bpmn-js-properties-panel/dist/assets/bpmn-js-properties-panel.css"></style>
 <style lang="scss" scoped>
     .components-ant-workflow-editor-container{
         position: relative;
