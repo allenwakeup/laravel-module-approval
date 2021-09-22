@@ -1,12 +1,12 @@
 <template>
-    <a-workflow></a-workflow>
+    <bpmn></bpmn>
 </template>
 
 <script>
-import AWorkflow from "@/components/admin/aworkflow";
+import Bpmn from '@/components/admin/bpmn'
 
 export default {
-    components: { AWorkflow },
+    components: { Bpmn },
     props: {},
     data() {
       return {

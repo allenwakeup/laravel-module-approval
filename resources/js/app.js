@@ -16,6 +16,16 @@ import {returnInfo,formatFloat,hasRoute} from '@/plugins/function' // 辅助方�
 import VueLazyload from 'vue-lazyload' // 懒加载图片
 import 'babel-polyfill' // 兼容IE
 
+// 以下为bpmn工作流绘图工具的样式
+import 'bpmn-js/dist/assets/diagram-js.css' // 左边工具栏以及编辑节点的样式
+import 'bpmn-js/dist/assets/bpmn-font/css/bpmn.css'
+import 'bpmn-js/dist/assets/bpmn-font/css/bpmn-codes.css'
+import 'bpmn-js/dist/assets/bpmn-font/css/bpmn-embedded.css'
+import 'diagram-js-minimap/assets/diagram-js-minimap.css'
+
+import '@/plugins/css/diagram-js.scss'
+import '@/plugins/css/bpmn.scss'
+
 Vue.prototype.$api=api;
 Vue.prototype.$post=post;
 Vue.prototype.$get=get;
