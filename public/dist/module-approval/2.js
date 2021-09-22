@@ -259,7 +259,7 @@ var adminCommonStore = Object(vuex__WEBPACK_IMPORTED_MODULE_7__["createNamespace
   created: function created() {
     this.get_menus(); // console.log(this.$route.name)
 
-    if (this.$route.name === 'admin_default') {
+    if (this.$route.name === 'goodcatch_m_approval_default') {
       this.isAdminDefault = true;
     } else {
       this.isAdminDefault = false;
@@ -281,7 +281,7 @@ var adminCommonStore = Object(vuex__WEBPACK_IMPORTED_MODULE_7__["createNamespace
   },
   beforeRouteUpdate: function beforeRouteUpdate(to, from, next) {
     // console.log(to,from);
-    if (to.name == 'admin_default') {
+    if (to.name === 'goodcatch_m_approval_default') {
       this.isAdminDefault = true;
     } else {
       this.isAdminDefault = false;
