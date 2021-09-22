@@ -13,15 +13,13 @@
     ],
     "require": {
         "php": ">=7.3",
-        "piece/stagehand-fsm": ">= 2.6.0",
-        "symfony/expression-language": ">= 4.0.0",
-        "phpmentors/workflower": "1.4.*"
+        "goodcatch/phpmentors-workflower": "1.4.2"
     },
     "require-dev": {
         "ext-json": "*",
-        "illuminate/support": "^8.61",
+        "illuminate/support": "^8.0",
         "laravel/framework": "^8.0",
-        "laravel/helpers": "^1.4.0",
+        "laravel/helpers": "^8.0",
         "goodcatch/laravel-modules": "^0.1.0",
         "goodcatch/laravel-module-base": "dev-master"
     },
