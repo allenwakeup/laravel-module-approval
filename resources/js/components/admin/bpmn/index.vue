@@ -1,17 +1,17 @@
 <template>
   <div class="bpmn">
     <div class="tool">
-      <el-button @click="saveXML">保存 XML</el-button>
-      <el-button @click="$refs.refFile.click()">导入 XML</el-button>
-      <el-button @click="saveSVG">保存为 SVG</el-button>
-      <el-button @click="handlerUndo">撤销</el-button>
-      <el-button @click="handlerRedo">恢复</el-button>
-      <el-button @click="handlerZoom(0.1)">放大</el-button>
-      <el-button @click="handlerZoom(-0.1)">缩小</el-button>
-      <el-button @click="handlerZoom(0)">还原</el-button>
-      <el-button @click="getElementAll">获取所有元素</el-button>
+      <a-button @click="saveXML">保存 XML</a-button>
+      <a-button @click="$refs.refFile.click()">导入 XML</a-button>
+      <a-button @click="saveSVG">保存为 SVG</a-button>
+      <a-button @click="handlerUndo">撤销</a-button>
+      <a-button @click="handlerRedo">恢复</a-button>
+      <a-button @click="handlerZoom(0.1)">放大</a-button>
+      <a-button @click="handlerZoom(-0.1)">缩小</a-button>
+      <a-button @click="handlerZoom(0)">还原</a-button>
+      <a-button @click="getElementAll">获取所有元素</a-button>
 
-      <input type="file"
+      <a-input type="file"
         id="files"
         ref="refFile"
         style="display: none"

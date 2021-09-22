@@ -552,10 +552,10 @@ var render = function() {
       "div",
       { staticClass: "tool" },
       [
-        _c("el-button", { on: { click: _vm.saveXML } }, [_vm._v("保存 XML")]),
+        _c("a-button", { on: { click: _vm.saveXML } }, [_vm._v("保存 XML")]),
         _vm._v(" "),
         _c(
-          "el-button",
+          "a-button",
           {
             on: {
               click: function($event) {
@@ -566,14 +566,14 @@ var render = function() {
           [_vm._v("导入 XML")]
         ),
         _vm._v(" "),
-        _c("el-button", { on: { click: _vm.saveSVG } }, [_vm._v("保存为 SVG")]),
+        _c("a-button", { on: { click: _vm.saveSVG } }, [_vm._v("保存为 SVG")]),
         _vm._v(" "),
-        _c("el-button", { on: { click: _vm.handlerUndo } }, [_vm._v("撤销")]),
+        _c("a-button", { on: { click: _vm.handlerUndo } }, [_vm._v("撤销")]),
         _vm._v(" "),
-        _c("el-button", { on: { click: _vm.handlerRedo } }, [_vm._v("恢复")]),
+        _c("a-button", { on: { click: _vm.handlerRedo } }, [_vm._v("恢复")]),
         _vm._v(" "),
         _c(
-          "el-button",
+          "a-button",
           {
             on: {
               click: function($event) {
@@ -585,7 +585,7 @@ var render = function() {
         ),
         _vm._v(" "),
         _c(
-          "el-button",
+          "a-button",
           {
             on: {
               click: function($event) {
@@ -597,7 +597,7 @@ var render = function() {
         ),
         _vm._v(" "),
         _c(
-          "el-button",
+          "a-button",
           {
             on: {
               click: function($event) {
@@ -608,11 +608,11 @@ var render = function() {
           [_vm._v("还原")]
         ),
         _vm._v(" "),
-        _c("el-button", { on: { click: _vm.getElementAll } }, [
+        _c("a-button", { on: { click: _vm.getElementAll } }, [
           _vm._v("获取所有元素")
         ]),
         _vm._v(" "),
-        _c("input", {
+        _c("a-input", {
           ref: "refFile",
           staticStyle: { display: "none" },
           attrs: { type: "file", id: "files" },
