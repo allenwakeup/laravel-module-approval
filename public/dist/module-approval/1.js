@@ -26,11 +26,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var diagram_js_minimap_assets_diagram_js_minimap_css__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! diagram-js-minimap/assets/diagram-js-minimap.css */ "./node_modules/diagram-js-minimap/assets/diagram-js-minimap.css");
 /* harmony import */ var diagram_js_minimap_assets_diagram_js_minimap_css__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(diagram_js_minimap_assets_diagram_js_minimap_css__WEBPACK_IMPORTED_MODULE_7__);
 /* harmony import */ var bpmn_js_lib_Modeler__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! bpmn-js/lib/Modeler */ "./node_modules/bpmn-js/lib/Modeler.js");
-!(function webpackMissingModule() { var e = new Error("Cannot find module 'bpmn-js-properties-panel'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-!(function webpackMissingModule() { var e = new Error("Cannot find module 'bpmn-js-properties-panel/lib/provider/camunda'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-/* harmony import */ var camunda_bpmn_moddle_resources_camunda__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! camunda-bpmn-moddle/resources/camunda */ "./node_modules/camunda-bpmn-moddle/resources/camunda.json");
-var camunda_bpmn_moddle_resources_camunda__WEBPACK_IMPORTED_MODULE_10___namespace = /*#__PURE__*/__webpack_require__.t(/*! camunda-bpmn-moddle/resources/camunda */ "./node_modules/camunda-bpmn-moddle/resources/camunda.json", 1);
-/* harmony import */ var _example_bpmn__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./example.bpmn */ "./resources/js/components/admin/aworkflow/example.bpmn");
+/* harmony import */ var camunda_bpmn_moddle_resources_camunda__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! camunda-bpmn-moddle/resources/camunda */ "./node_modules/camunda-bpmn-moddle/resources/camunda.json");
+var camunda_bpmn_moddle_resources_camunda__WEBPACK_IMPORTED_MODULE_9___namespace = /*#__PURE__*/__webpack_require__.t(/*! camunda-bpmn-moddle/resources/camunda */ "./node_modules/camunda-bpmn-moddle/resources/camunda.json", 1);
+/* harmony import */ var _example_bpmn__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./example.bpmn */ "./resources/js/components/admin/aworkflow/example.bpmn");
 
 
 
@@ -54,8 +52,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 // https://github.com/miyuesc/bpmn-process-designer
 // https://github.com/PL-FE/bpmn-doc/blob/main/README.md
 
-
-
+ //import propertiesPanelModule from 'bpmn-js-properties-panel'
+//import propertiesProviderModule from 'bpmn-js-properties-panel/lib/provider/camunda'
 
 
  // 这里是直接引用了xml字符串
@@ -82,9 +80,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           parent: '#js-properties-panel'
         },
         additionalModules: [// 右边的属性栏
-        !(function webpackMissingModule() { var e = new Error("Cannot find module 'bpmn-js-properties-panel/lib/provider/camunda'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()), !(function webpackMissingModule() { var e = new Error("Cannot find module 'bpmn-js-properties-panel'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())],
-        moddleExtensions: {
-          camunda: camunda_bpmn_moddle_resources_camunda__WEBPACK_IMPORTED_MODULE_10__
+          //propertiesProviderModule,
+          //propertiesPanelModule
+        ],
+        moddleExtensions: {// camunda: camundaModdleDescriptor
         }
       });
       this.createNewDiagram();
@@ -100,7 +99,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               case 0:
                 _context.prev = 0;
                 _context.next = 3;
-                return _this.bpmnModeler.importXML(_example_bpmn__WEBPACK_IMPORTED_MODULE_11__["xmlStr"]);
+                return _this.bpmnModeler.importXML(_example_bpmn__WEBPACK_IMPORTED_MODULE_10__["xmlStr"]);
 
               case 3:
                 result = _context.sent;

@@ -35,7 +35,7 @@ class ResourcesServiceProvider extends ServiceProvider
         if ($this->app->runningInConsole ()) {
             $src = __DIR__ . '/../..';
             $this->publishes ([
-                $src . '/public/dist' =>  public_path(),
+                $src . '/public/dist' =>  public_path('dist'),
                 $src . '/resources/js/components/goodcatch' =>  resource_path('js/components/goodcatch'),
             ], 'laravel-modules');
 
