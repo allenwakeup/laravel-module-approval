@@ -8,25 +8,30 @@
         <div class="admin_form">
             <a-form-model :model="form" :rules="rules" :label-col="{ span: 6 }"  :wrapper-col="{ span: 16 }">
                 <a-row :gutter="1">
-                    <a-col :span="24">
+                    <a-col :span="12">
                         <a-form-model-item label="模版分类">
                             <a-cascader :load-data="load_categories"
                                         :options="categories"
                                         :fieldNames="{ label : 'name', value: 'id', children: 'children' }"
-                                        :placeholder="(form.categorie_id > 0 && form.categories) ? form.categories : '请选择上级分类'"
+                                        :placeholder="(form.category_id > 0 && form.categories) ? form.categories : '请选择上级分类'"
                                         change-on-select
                                         @change="categorie_change" />
+                        </a-form-model-item>
+                    </a-col>
+                    <a-col :span="12">
+                        <a-form-model-item label="状态">
+                            <a-switch checked-children="启用" un-checked-children="禁用" :checked="form.status === 1" @change="onChangeStatus"/>
                         </a-form-model-item>
                     </a-col>
                 </a-row>
                 <a-row :gutter="1">
                     <a-col :span="12">
-                        <a-form-model-item label="编码" prop="name">
+                        <a-form-model-item label="编码" prop="code">
                             <a-input v-model="form.code"></a-input>
                         </a-form-model-item>
                     </a-col>
                     <a-col :span="12">
-                        <a-form-model-item label="名称" prop="code">
+                        <a-form-model-item label="名称" prop="name">
                             <a-input v-model="form.name"></a-input>
                         </a-form-model-item>
                     </a-col>
@@ -48,14 +53,7 @@
                     </a-col>
                 </a-row>
 
-                <a-row :gutter="1">
-                    <a-col :span="24">
-                        <a-form-model-item label="描述" prop="description">
-                            <a-textarea v-model="form.description" :auto-size="{ minRows: 3, maxRows: 5 }" />
-                        </a-form-model-item>
-                    </a-col>
 
-                </a-row>
 
                 <a-row :gutter="1">
                     <a-col :span="12">
@@ -70,17 +68,21 @@
                     </a-col>
                 </a-row>
                 <a-row :gutter="1">
+                    <a-col :span="12">
+                        <a-form-model-item label="描述" prop="description">
+                            <a-textarea v-model="form.description" :auto-size="{ minRows: 3, maxRows: 5 }" />
+                        </a-form-model-item>
+                    </a-col>
+
+                </a-row>
+                <a-row :gutter="1">
 
                     <a-col :span="12">
                         <a-form-model-item label="排序" prop="order">
                             <a-input-number v-model="form.order" :min="0" @change="onChangeOrder" />
                         </a-form-model-item>
                     </a-col>
-                    <a-col :span="12">
-                        <a-form-model-item label="状态">
-                            <a-switch checked-children="启用" un-checked-children="禁用" :checked="form.status === 1" @change="onChangeStatus"/>
-                        </a-form-model-item>
-                    </a-col>
+
                 </a-row>
                 <a-form-model-item :wrapper-col="{ span: 12, offset: 5 }">
                     <a-button type="primary" @click="handleSubmit">提交</a-button>

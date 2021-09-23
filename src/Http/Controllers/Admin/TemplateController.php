@@ -33,7 +33,7 @@ class TemplateController extends Controller
         return $this->success(
             new TemplateCollection(TemplateRepository::list(
                 $request->per_page??30,
-                $request->validated(),
+                $request->only(['name']),
                 $request->keyword
             )));
     }
@@ -79,7 +79,7 @@ class TemplateController extends Controller
 
         try {
             $res = TemplateRepository::update ($id, array_merge(['pid' => 0], $data));
-                        return $this->success($res, __('base.success'));
+            return $this->success($res, __('base.success'));
         } catch (QueryException $e) {
             return $this->error(__('base.error') . (Str::contains ($e->getMessage (), 'Duplicate entry') ? '当前数据已存在' : '其它错误'));
         }
@@ -135,7 +135,7 @@ class TemplateController extends Controller
      */
     public function upload(Request $request, $id){
 
-        $file = $request->file;
+        $file = $request->file('file');
 
         if(is_null ($file)){
             return $this->error('no file specific');
@@ -149,7 +149,7 @@ class TemplateController extends Controller
             // 值如：/home/vagrant/Code/larabbs/public/uploads/images/avatars/201709/21/
 
             // 获取文件的后缀名，因图片从剪贴板里黏贴时后缀名为空，所以此处确保后缀一直存在
-            $extension = strtolower($request->file->getClientOriginalExtension()) ?: 'bpmn';
+            $extension = strtolower($file->getClientOriginalExtension()) ?: 'bpmn';
 
             // 如果上传的不是指定后缀将终止操作
             if ( ! in_array($extension, ['bpmn'])) {
@@ -158,8 +158,6 @@ class TemplateController extends Controller
                 ]);
             }
             $path = $path . '/approval_template_' . time() . '_' . str_random(10) . '.' . $extension;
-
-            $request->file->move($path);
         } else {
             $path = $template->path;
         }

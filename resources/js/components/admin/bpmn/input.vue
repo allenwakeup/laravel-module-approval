@@ -1,20 +1,20 @@
 <template>
     <div>
-        <a-input v-model="file">
+        <a-input v-model="file" disabled>
             <a-icon slot="addonAfter" type="edit" @click="toggle"/>
         </a-input>
         <a-modal
                 :title="title"
-                :body-style="{ overflow: 'scroll', height: '100%' }"
+                :body-style="{padding: 0, height: '800px' }"
                 :dialog-style="{ top: 0, left: 0 }"
                 :visible="show"
                 @cancel="close"
                 cancelText="关闭"
-                width="99%"
+                width="80%"
                 :footer="null"
-                height="100%">
+                height="800px">
             <a-layout-content>
-                <a-bpmn-designer :actions="actions" @change="onChangeFilePath"></a-bpmn-designer>
+                <a-bpmn-designer height="800px" :actions="actions" @change="onChangeFilePath"></a-bpmn-designer>
             </a-layout-content>
         </a-modal>
     </div>

@@ -79,6 +79,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
 // 引入相关的依赖
 
 
@@ -97,6 +98,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   name: 'Bpmn',
   components: {},
   props: {
+    height: {
+      type: String,
+      default: '500px'
+    },
     actions: {
       required: true,
       type: Object,
@@ -335,17 +340,60 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         }, _callee3, null, [[0, 16]]);
       }))();
     },
-    loadXML: function loadXML() {
+    uploadXML: function uploadXML() {
       var _this5 = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4() {
-        var that, file, reader;
+        var result, xml, xmlBlob, form;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
           while (1) {
             switch (_context4.prev = _context4.next) {
               case 0:
-                that = _this5;
-                file = _this5.$refs.refFile.files[0];
+                _context4.prev = 0;
+                _context4.next = 3;
+                return _this5.bpmnModeler.saveXML({
+                  format: true
+                });
+
+              case 3:
+                result = _context4.sent;
+                xml = result.xml;
+                xmlBlob = new Blob([xml], {
+                  type: 'application/bpmn20-xml;charset=UTF-8,'
+                });
+                form = new FormData();
+                form.append('file', xmlBlob);
+
+                _this5.$postfile(_this5.actions.upload, form).then(function (res) {
+                  console.log(res);
+                });
+
+                _context4.next = 13;
+                break;
+
+              case 11:
+                _context4.prev = 11;
+                _context4.t0 = _context4["catch"](0);
+
+              case 13:
+              case "end":
+                return _context4.stop();
+            }
+          }
+        }, _callee4, null, [[0, 11]]);
+      }))();
+    },
+    loadXML: function loadXML() {
+      var _this6 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee5() {
+        var that, file, reader;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee5$(_context5) {
+          while (1) {
+            switch (_context5.prev = _context5.next) {
+              case 0:
+                that = _this6;
+                file = _this6.$refs.refFile.files[0];
                 reader = new FileReader();
                 reader.readAsText(file);
 
@@ -357,10 +405,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
               case 5:
               case "end":
-                return _context4.stop();
+                return _context5.stop();
             }
           }
-        }, _callee4);
+        }, _callee5);
       }))();
     },
     handlerRedo: function handlerRedo() {
@@ -681,6 +729,8 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -840,7 +890,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, ".bpmn[data-v-4abf8050] {\n  width: 100%;\n  height: 100vh;\n  position: relative;\n}\n.bpmn .canvas[data-v-4abf8050] {\n  width: 100%;\n  height: 100%;\n}\n.bpmn .panel[data-v-4abf8050] {\n  position: absolute;\n  right: 0;\n  top: 0;\n  width: 300px;\n}\n.bpmn .tool[data-v-4abf8050] {\n  position: absolute;\n  z-index: 1;\n  left: 50%;\n  bottom: 20px;\n  transform: translateX(-50%);\n}\n", ""]);
+exports.push([module.i, ".bpmn[data-v-4abf8050] {\n  width: 100%;\n  position: relative;\n}\n.bpmn .canvas[data-v-4abf8050] {\n  width: 100%;\n  height: 100%;\n}\n.bpmn .panel[data-v-4abf8050] {\n  position: absolute;\n  right: 0;\n  top: 0;\n  width: 300px;\n}\n.bpmn .tool[data-v-4abf8050] {\n  position: absolute;\n  z-index: 1;\n  left: 50%;\n  bottom: 20px;\n  transform: translateX(-50%);\n}\n", ""]);
 
 // exports
 
@@ -892,12 +942,14 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "bpmn" }, [
+  return _c("div", { staticClass: "bpmn", style: { height: _vm.height } }, [
     _c(
       "div",
       { staticClass: "tool" },
       [
         _c("a-button", { on: { click: _vm.saveXML } }, [_vm._v("保存 XML")]),
+        _vm._v(" "),
+        _c("a-button", { on: { click: _vm.uploadXML } }, [_vm._v("上传 XML")]),
         _vm._v(" "),
         _c(
           "a-button",
@@ -1000,6 +1052,7 @@ var render = function() {
       _c(
         "a-input",
         {
+          attrs: { disabled: "" },
           model: {
             value: _vm.file,
             callback: function($$v) {
@@ -1023,13 +1076,13 @@ var render = function() {
         {
           attrs: {
             title: _vm.title,
-            "body-style": { overflow: "scroll", height: "100%" },
+            "body-style": { padding: 0, height: "800px" },
             "dialog-style": { top: 0, left: 0 },
             visible: _vm.show,
             cancelText: "关闭",
-            width: "99%",
+            width: "80%",
             footer: null,
-            height: "100%"
+            height: "800px"
           },
           on: { cancel: _vm.close }
         },
@@ -1038,7 +1091,7 @@ var render = function() {
             "a-layout-content",
             [
               _c("a-bpmn-designer", {
-                attrs: { actions: _vm.actions },
+                attrs: { height: "800px", actions: _vm.actions },
                 on: { change: _vm.onChangeFilePath }
               })
             ],
@@ -1119,7 +1172,7 @@ var render = function() {
               [
                 _c(
                   "a-col",
-                  { attrs: { span: 24 } },
+                  { attrs: { span: 12 } },
                   [
                     _c(
                       "a-form-model-item",
@@ -1135,12 +1188,35 @@ var render = function() {
                               children: "children"
                             },
                             placeholder:
-                              _vm.form.categorie_id > 0 && _vm.form.categories
+                              _vm.form.category_id > 0 && _vm.form.categories
                                 ? _vm.form.categories
                                 : "请选择上级分类",
                             "change-on-select": ""
                           },
                           on: { change: _vm.categorie_change }
+                        })
+                      ],
+                      1
+                    )
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "a-col",
+                  { attrs: { span: 12 } },
+                  [
+                    _c(
+                      "a-form-model-item",
+                      { attrs: { label: "状态" } },
+                      [
+                        _c("a-switch", {
+                          attrs: {
+                            "checked-children": "启用",
+                            "un-checked-children": "禁用",
+                            checked: _vm.form.status === 1
+                          },
+                          on: { change: _vm.onChangeStatus }
                         })
                       ],
                       1
@@ -1162,7 +1238,7 @@ var render = function() {
                   [
                     _c(
                       "a-form-model-item",
-                      { attrs: { label: "编码", prop: "name" } },
+                      { attrs: { label: "编码", prop: "code" } },
                       [
                         _c("a-input", {
                           model: {
@@ -1186,7 +1262,7 @@ var render = function() {
                   [
                     _c(
                       "a-form-model-item",
-                      { attrs: { label: "名称", prop: "code" } },
+                      { attrs: { label: "名称", prop: "name" } },
                       [
                         _c("a-input", {
                           model: {
@@ -1276,38 +1352,6 @@ var render = function() {
               [
                 _c(
                   "a-col",
-                  { attrs: { span: 24 } },
-                  [
-                    _c(
-                      "a-form-model-item",
-                      { attrs: { label: "描述", prop: "description" } },
-                      [
-                        _c("a-textarea", {
-                          attrs: { "auto-size": { minRows: 3, maxRows: 5 } },
-                          model: {
-                            value: _vm.form.description,
-                            callback: function($$v) {
-                              _vm.$set(_vm.form, "description", $$v)
-                            },
-                            expression: "form.description"
-                          }
-                        })
-                      ],
-                      1
-                    )
-                  ],
-                  1
-                )
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c(
-              "a-row",
-              { attrs: { gutter: 1 } },
-              [
-                _c(
-                  "a-col",
                   { attrs: { span: 12 } },
                   [
                     _c(
@@ -1367,6 +1411,38 @@ var render = function() {
                   [
                     _c(
                       "a-form-model-item",
+                      { attrs: { label: "描述", prop: "description" } },
+                      [
+                        _c("a-textarea", {
+                          attrs: { "auto-size": { minRows: 3, maxRows: 5 } },
+                          model: {
+                            value: _vm.form.description,
+                            callback: function($$v) {
+                              _vm.$set(_vm.form, "description", $$v)
+                            },
+                            expression: "form.description"
+                          }
+                        })
+                      ],
+                      1
+                    )
+                  ],
+                  1
+                )
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "a-row",
+              { attrs: { gutter: 1 } },
+              [
+                _c(
+                  "a-col",
+                  { attrs: { span: 12 } },
+                  [
+                    _c(
+                      "a-form-model-item",
                       { attrs: { label: "排序", prop: "order" } },
                       [
                         _c("a-input-number", {
@@ -1379,29 +1455,6 @@ var render = function() {
                             },
                             expression: "form.order"
                           }
-                        })
-                      ],
-                      1
-                    )
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c(
-                  "a-col",
-                  { attrs: { span: 12 } },
-                  [
-                    _c(
-                      "a-form-model-item",
-                      { attrs: { label: "状态" } },
-                      [
-                        _c("a-switch", {
-                          attrs: {
-                            "checked-children": "启用",
-                            "un-checked-children": "禁用",
-                            checked: _vm.form.status === 1
-                          },
-                          on: { change: _vm.onChangeStatus }
                         })
                       ],
                       1

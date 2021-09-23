@@ -27,7 +27,7 @@
         <div class="admin_table_list">
             <a-table :columns="columns" :data-source="list" :pagination="false" :row-selection="{ selectedRowKeys: selectedRowKeys, onChange: onSelectChange }" row-key="id">
                 <span slot="pid" slot-scope="record">
-                    {{ record.parent ? record.parent.name : '--' }}
+                    {{ record.path_text ? record.path_text.join(' / ') : '--' }}
                 </span>
                 <a-button type="link" slot="name" slot-scope="record" @click="onClickName(record)">
                     {{ record.name }}
@@ -77,7 +77,6 @@ export default {
               {title:'描述',dataIndex:'description'},
               {title:'排序',dataIndex:'order'},
               {title:'类型', scopedSlots:{ customRender: 'type' }},
-              {title:'类别', dataIndex:'category'},
               {title:'状态', scopedSlots:{ customRender: 'status' }},
               {title:'创建时间',dataIndex:'created_at'},
               {title:'更新时间',dataIndex:'updated_at'},

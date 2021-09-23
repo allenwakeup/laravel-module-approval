@@ -15,7 +15,7 @@ class ApprovalDatabaseSeeder extends Seeder
     public function run ()
     {
         Model::unguard ();
-
+        $this->call(PermissionTableSeeder::class);
         // $this->call("OthersTableSeeder");
     }
 }

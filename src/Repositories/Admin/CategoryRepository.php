@@ -9,7 +9,7 @@ class CategoryRepository extends BaseRepository
     public static function list ($perPage, $condition = [], $keyword = null)
     {
         return Category::query()
-            ->with (['parent', 'refParent'])
+            ->with (['parent'])
             ->where(function ($query) use ($condition) {
                 self::buildQuery($query, $condition);
                 if (! empty ($keyword))

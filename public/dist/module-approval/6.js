@@ -1,64 +1,20 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[6],{
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/Admin/categories/form.vue?vue&type=script&lang=js&":
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/Admin/templates/index.vue?vue&type=script&lang=js&":
 /*!***************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/Admin/categories/form.vue?vue&type=script&lang=js& ***!
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/Admin/templates/index.vue?vue&type=script&lang=js& ***!
   \***************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var core_js_modules_es_function_name_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! core-js/modules/es.function.name.js */ "./node_modules/core-js/modules/es.function.name.js");
-/* harmony import */ var core_js_modules_es_function_name_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_function_name_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var core_js_modules_es_symbol_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! core-js/modules/es.symbol.js */ "./node_modules/core-js/modules/es.symbol.js");
-/* harmony import */ var core_js_modules_es_symbol_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_symbol_js__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var core_js_modules_es_symbol_description_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! core-js/modules/es.symbol.description.js */ "./node_modules/core-js/modules/es.symbol.description.js");
-/* harmony import */ var core_js_modules_es_symbol_description_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_symbol_description_js__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var core_js_modules_es_object_to_string_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! core-js/modules/es.object.to-string.js */ "./node_modules/core-js/modules/es.object.to-string.js");
-/* harmony import */ var core_js_modules_es_object_to_string_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_object_to_string_js__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var core_js_modules_es_symbol_iterator_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! core-js/modules/es.symbol.iterator.js */ "./node_modules/core-js/modules/es.symbol.iterator.js");
-/* harmony import */ var core_js_modules_es_symbol_iterator_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_symbol_iterator_js__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var core_js_modules_es_array_iterator_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! core-js/modules/es.array.iterator.js */ "./node_modules/core-js/modules/es.array.iterator.js");
-/* harmony import */ var core_js_modules_es_array_iterator_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_iterator_js__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var core_js_modules_es_string_iterator_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! core-js/modules/es.string.iterator.js */ "./node_modules/core-js/modules/es.string.iterator.js");
-/* harmony import */ var core_js_modules_es_string_iterator_js__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_string_iterator_js__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var core_js_modules_web_dom_collections_iterator_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! core-js/modules/web.dom-collections.iterator.js */ "./node_modules/core-js/modules/web.dom-collections.iterator.js");
-/* harmony import */ var core_js_modules_web_dom_collections_iterator_js__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_dom_collections_iterator_js__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var core_js_modules_es_array_from_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! core-js/modules/es.array.from.js */ "./node_modules/core-js/modules/es.array.from.js");
-/* harmony import */ var core_js_modules_es_array_from_js__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_from_js__WEBPACK_IMPORTED_MODULE_8__);
-/* harmony import */ var core_js_modules_es_array_slice_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! core-js/modules/es.array.slice.js */ "./node_modules/core-js/modules/es.array.slice.js");
-/* harmony import */ var core_js_modules_es_array_slice_js__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_slice_js__WEBPACK_IMPORTED_MODULE_9__);
-function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
-
-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
-
-function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+/* harmony import */ var core_js_modules_es_array_join_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! core-js/modules/es.array.join.js */ "./node_modules/core-js/modules/es.array.join.js");
+/* harmony import */ var core_js_modules_es_array_join_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_join_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var core_js_modules_es_object_assign_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! core-js/modules/es.object.assign.js */ "./node_modules/core-js/modules/es.object.assign.js");
+/* harmony import */ var core_js_modules_es_object_assign_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_object_assign_js__WEBPACK_IMPORTED_MODULE_1__);
 
 
-
-
-
-
-
-
-
-
-
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -103,129 +59,154 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
   props: {},
   data: function data() {
     return {
-      cascader_category: [],
-      form: {
-        pid: 0,
-        code: '',
-        name: '',
-        short: '',
-        alias: '',
-        description: '',
-        order: 1,
-        status: 1
+      params: {
+        page: 1,
+        per_page: 30
       },
-      rules: {
-        code: [{
-          min: 1,
-          max: 20,
-          message: '1到20个字符',
-          trigger: 'blur'
-        }],
-        name: [{
-          required: true,
-          message: '请输入分类名称',
-          trigger: 'blur'
-        }, {
-          min: 2,
-          max: 10,
-          message: '至少两个字',
-          trigger: 'blur'
-        }]
+      total: 0,
+      //总页数
+      selectedRowKeys: [],
+      // 被选择的行
+      columns: [{
+        title: '#',
+        dataIndex: 'id',
+        fixed: 'left',
+        width: 80
+      }, {
+        title: '上级',
+        scopedSlots: {
+          customRender: 'pid'
+        },
+        width: 120
+      }, {
+        title: '分类',
+        scopedSlots: {
+          customRender: 'category'
+        },
+        width: 220
+      }, {
+        title: '编码',
+        dataIndex: 'code',
+        width: 120
+      }, {
+        title: '名称',
+        dataIndex: 'name',
+        width: 120
+      }, {
+        title: '分组',
+        scopedSlots: {
+          customRender: 'group'
+        },
+        width: 120
+      }, {
+        title: '类型',
+        scopedSlots: {
+          customRender: 'type'
+        },
+        width: 120
+      }, {
+        title: '排序',
+        dataIndex: 'order',
+        width: 90
+      }, {
+        title: '状态',
+        scopedSlots: {
+          customRender: 'status'
+        },
+        width: 120
+      }, {
+        title: '创建时间',
+        dataIndex: 'created_at',
+        width: 120
+      }, {
+        title: '更新时间',
+        dataIndex: 'updated_at',
+        width: 120
+      }, {
+        title: '操作',
+        fixed: 'right',
+        scopedSlots: {
+          customRender: 'action'
+        }
+      }],
+      list: [],
+      dictionary: {
+        status: {
+          enabled: '启用',
+          disabled: '禁用'
+        },
+        gender: ['默认', '男', '女', '其他']
       },
-      categories: [],
-      id: 0
+      loading_status: {}
     };
   },
   watch: {},
   computed: {},
   methods: {
-    handleSubmit: function handleSubmit() {
+    // 选择框被点击
+    onSelectChange: function onSelectChange(selectedRowKeys) {
+      this.selectedRowKeys = selectedRowKeys;
+    },
+    // 选择分页
+    onChange: function onChange(e) {
+      this.params.page = e;
+    },
+    // 删除
+    del: function del() {
       var _this = this;
 
-      // 验证代码处
-      if (this.$isEmpty(this.form.code)) {
-        return this.$message.error('编码不能为空');
+      if (this.selectedRowKeys.length === 0) {
+        return this.$message.error('未选择数据.');
       }
 
-      if (this.$isEmpty(this.form.name)) {
-        return this.$message.error('名称不能为空');
-      }
+      this.$confirm({
+        title: '你确定要删除选择的数据？',
+        content: '确定删除后无法恢复.',
+        okText: '是',
+        okType: 'danger',
+        cancelText: '取消',
+        onOk: function onOk() {
+          var ids = _this.selectedRowKeys.join(',');
 
-      var api = this.$apiHandle(this.$api.moduleApprovalCategories, this.id);
+          _this.$delete(_this.$api.moduleApprovalTemplates + '/' + ids).then(function (res) {
+            if (res.code === 200) {
+              _this.onload();
 
-      if (api.status) {
-        this.$put(api.url, this.form).then(function (res) {
-          if (res.code === 200) {
-            _this.$message.success(res.msg);
-
-            return _this.$router.back();
-          } else {
-            return _this.$message.error(res.msg);
-          }
-        });
-      } else {
-        this.$post(api.url, this.form).then(function (res) {
-          if (res.code === 200 || res.code === 201) {
-            _this.$message.success(res.msg);
-
-            return _this.$router.back();
-          } else {
-            return _this.$message.error(res.msg);
-          }
-        });
-      }
+              _this.$message.success('删除成功');
+            } else {
+              _this.$message.error(res.msg);
+            }
+          });
+        }
+      });
     },
-    get_form: function get_form() {
+    onStatusChange: function onStatusChange(record) {
       var _this2 = this;
 
-      this.$get(this.$api.moduleApprovalCategories + '/' + this.id).then(function (res) {
-        _this2.form = res.data;
+      var reverse_status = [1, 0][record.status];
+      this.loading_status['_' + record.id] = true;
+      this.$put(this.$api.moduleApprovalTemplates + '/' + record.id, Object.assign({}, record, {
+        status: reverse_status
+      })).then(function (res) {
+        _this2.loading_status['_' + record.id] = false;
+
+        if (res.code === 200) {
+          record.status = reverse_status;
+
+          _this2.$message.success(res.msg);
+        } else {
+          return _this2.$message.error(res.msg);
+        }
+      }).catch(function () {
+        return _this2.loading_status['_' + record.id] = false;
       });
     },
-    onChangeOrder: function onChangeOrder(value) {
-      this.form.order = value;
-    },
-    onChangeStatus: function onChangeStatus(checked) {
-      this.form.status = checked ? 1 : 0;
-    },
-    category_change: function category_change(row, form) {
-      this.form.pid = row[row.length - 1];
-
-      if (row.length === 0) {
-        this.form.pid = 0;
-      }
-    },
-    load_categories: function load_categories(selectedOptions) {
+    onload: function onload() {
       var _this3 = this;
 
-      var targetOption = selectedOptions[selectedOptions.length - 1];
-      targetOption.loading = true;
-      var params = {
-        pid: targetOption.id,
-        data_type: 'select'
-      };
-      this.$get(this.$api.moduleApprovalCategories, params).then(function (res) {
-        targetOption.loading = false;
-        targetOption.children = res.data;
-        _this3.categories = _toConsumableArray(_this3.categories);
-      });
-    },
-    // 获取列表
-    onload: function onload() {
-      var _this4 = this;
-
-      // 判断你是否是编辑
-      if (!this.$isEmpty(this.$route.params.id)) {
-        this.id = this.$route.params.id;
-        this.get_form();
-      }
-
-      this.$get(this.$api.moduleApprovalCategories, {
-        data_type: 'select'
-      }).then(function (res) {
-        if (res.code === 200) {
-          _this4.categories = res.data;
-        }
+      this.$get(this.$api.moduleApprovalTemplates, this.params).then(function (res) {
+        _this3.total = res.data.total;
+        _this3.list = res.data.data;
       });
     }
   },
@@ -237,9 +218,9 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/Admin/categories/form.vue?vue&type=template&id=37d33b08&scoped=true&":
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/Admin/templates/index.vue?vue&type=template&id=5083fa2d&scoped=true&":
 /*!*******************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/Admin/categories/form.vue?vue&type=template&id=37d33b08&scoped=true& ***!
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/Admin/templates/index.vue?vue&type=template&id=5083fa2d&scoped=true& ***!
   \*******************************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -253,209 +234,180 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c(
-      "div",
-      { staticClass: "admin_table_page_title" },
-      [
-        _c(
-          "a-button",
-          {
-            staticClass: "float_right",
-            attrs: { icon: "arrow-left" },
-            on: {
-              click: function($event) {
-                return _vm.$router.back()
-              }
-            }
-          },
-          [_vm._v("返回")]
-        ),
-        _vm._v("\n        分类编辑\n    ")
-      ],
-      1
-    ),
+    _c("div", { staticClass: "admin_table_page_title" }, [_vm._v("模版列表")]),
     _vm._v(" "),
     _c("div", { staticClass: "unline underm" }),
     _vm._v(" "),
     _c(
       "div",
-      { staticClass: "admin_form" },
+      { staticClass: "admin_table_handle_btn" },
       [
         _c(
-          "a-form-model",
+          "a-button",
           {
-            attrs: {
-              model: _vm.form,
-              rules: _vm.rules,
-              "label-col": { span: 6 },
-              "wrapper-col": { span: 16 }
+            attrs: { type: "primary", icon: "plus" },
+            on: {
+              click: function($event) {
+                return _vm.$router.push(
+                  "/Admin/goodcatch/m/approval/templates/form"
+                )
+              }
             }
           },
-          [
-            _c(
-              "a-form-model-item",
-              { attrs: { label: "上级分类" } },
-              [
-                _c("a-cascader", {
+          [_vm._v("添加")]
+        ),
+        _vm._v(" "),
+        _c(
+          "a-button",
+          {
+            staticClass: "admin_delete_btn",
+            attrs: { type: "danger", icon: "delete" },
+            on: { click: _vm.del }
+          },
+          [_vm._v("批量删除")]
+        )
+      ],
+      1
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "admin_table_list" },
+      [
+        _c("a-table", {
+          attrs: {
+            columns: _vm.columns,
+            "data-source": _vm.list,
+            pagination: false,
+            scroll: { x: 2048 },
+            "row-selection": {
+              selectedRowKeys: _vm.selectedRowKeys,
+              onChange: _vm.onSelectChange
+            },
+            "row-key": "id"
+          },
+          scopedSlots: _vm._u([
+            {
+              key: "pid",
+              fn: function(record) {
+                return _c("span", {}, [
+                  _vm._v(
+                    "\n                " +
+                      _vm._s(record.parent ? record.parent.name : "--") +
+                      "\n            "
+                  )
+                ])
+              }
+            },
+            {
+              key: "type",
+              fn: function(record) {
+                return _c("span", {}, [
+                  _vm._v(
+                    "\n                " +
+                      _vm._s(record.type === 0 ? "默认" : "其他") +
+                      "\n            "
+                  )
+                ])
+              }
+            },
+            {
+              key: "category",
+              fn: function(record) {
+                return _c("span", {}, [
+                  _vm._v(
+                    "\n                " +
+                      _vm._s(
+                        record.category &&
+                          _vm.recored.category.path_text.length > 0
+                          ? record.path_text.join(" / ")
+                          : "--"
+                      ) +
+                      "\n            "
+                  )
+                ])
+              }
+            },
+            {
+              key: "status",
+              fn: function(record) {
+                return _c("a-switch", {
                   attrs: {
-                    "load-data": _vm.load_categories,
-                    options: _vm.categories,
-                    fieldNames: {
-                      label: "name",
-                      value: "id",
-                      children: "children"
-                    },
-                    placeholder:
-                      _vm.form.pid > 0 && _vm.form.path_text
-                        ? _vm.form.path_text.join(" / ")
-                        : "请选择上级分类",
-                    "change-on-select": ""
+                    loading: _vm.loading_status["_" + record.id],
+                    "checked-children": _vm.dictionary.status.enabled,
+                    "un-checked-children": _vm.dictionary.status.disabled,
+                    "default-checked": record.status === 1
                   },
-                  on: { change: _vm.category_change }
-                })
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c(
-              "a-form-model-item",
-              { attrs: { label: "编码" } },
-              [
-                _c("a-input", {
-                  model: {
-                    value: _vm.form.code,
-                    callback: function($$v) {
-                      _vm.$set(_vm.form, "code", $$v)
-                    },
-                    expression: "form.code"
+                  on: {
+                    change: function($event) {
+                      return _vm.onStatusChange(record)
+                    }
                   }
                 })
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c(
-              "a-form-model-item",
-              { attrs: { label: "名称", prop: "name" } },
-              [
-                _c("a-input", {
-                  model: {
-                    value: _vm.form.name,
-                    callback: function($$v) {
-                      _vm.$set(_vm.form, "name", $$v)
-                    },
-                    expression: "form.name"
-                  }
-                })
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c(
-              "a-form-model-item",
-              { attrs: { label: "简称" } },
-              [
-                _c("a-input", {
-                  model: {
-                    value: _vm.form.short,
-                    callback: function($$v) {
-                      _vm.$set(_vm.form, "short", $$v)
-                    },
-                    expression: "form.short"
-                  }
-                })
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c(
-              "a-form-model-item",
-              { attrs: { label: "别名" } },
-              [
-                _c("a-input", {
-                  model: {
-                    value: _vm.form.alias,
-                    callback: function($$v) {
-                      _vm.$set(_vm.form, "alias", $$v)
-                    },
-                    expression: "form.alias"
-                  }
-                })
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c(
-              "a-form-model-item",
-              { attrs: { label: "描述" } },
-              [
-                _c("a-textarea", {
-                  attrs: { "auto-size": { minRows: 3, maxRows: 5 } },
-                  model: {
-                    value: _vm.form.description,
-                    callback: function($$v) {
-                      _vm.$set(_vm.form, "description", $$v)
-                    },
-                    expression: "form.description"
-                  }
-                })
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c(
-              "a-form-model-item",
-              { attrs: { label: "排序", prop: "order" } },
-              [
-                _c("a-input-number", {
-                  attrs: { min: 0 },
-                  on: { change: _vm.onChangeOrder },
-                  model: {
-                    value: _vm.form.order,
-                    callback: function($$v) {
-                      _vm.$set(_vm.form, "order", $$v)
-                    },
-                    expression: "form.order"
-                  }
-                })
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c(
-              "a-form-model-item",
-              { attrs: { label: "状态" } },
-              [
-                _c("a-switch", {
-                  attrs: {
-                    "checked-children": "启用",
-                    "un-checked-children": "禁用",
-                    checked: _vm.form.status === 1
-                  },
-                  on: { change: _vm.onChangeStatus }
-                })
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c(
-              "a-form-model-item",
-              { attrs: { "wrapper-col": { span: 12, offset: 5 } } },
-              [
-                _c(
-                  "a-button",
-                  {
-                    attrs: { type: "primary" },
-                    on: { click: _vm.handleSubmit }
-                  },
-                  [_vm._v("提交")]
+              }
+            },
+            {
+              key: "action",
+              fn: function(rows) {
+                return _c(
+                  "span",
+                  {},
+                  [
+                    _c(
+                      "a-button",
+                      {
+                        attrs: { icon: "edit" },
+                        on: {
+                          click: function($event) {
+                            return _vm.$router.push(
+                              "/Admin/goodcatch/m/approval/templates/form/" +
+                                rows.id
+                            )
+                          }
+                        }
+                      },
+                      [_vm._v("编辑")]
+                    )
+                  ],
+                  1
                 )
+              }
+            }
+          ])
+        }),
+        _vm._v(" "),
+        _vm.total > 0
+          ? _c(
+              "div",
+              { staticClass: "admin_pagination" },
+              [
+                _c("a-pagination", {
+                  attrs: {
+                    "page-size": _vm.params.per_page,
+                    total: _vm.total,
+                    "show-less-items": ""
+                  },
+                  on: {
+                    "update:pageSize": function($event) {
+                      return _vm.$set(_vm.params, "per_page", $event)
+                    },
+                    "update:page-size": function($event) {
+                      return _vm.$set(_vm.params, "per_page", $event)
+                    },
+                    change: _vm.onChange
+                  },
+                  model: {
+                    value: _vm.params.page,
+                    callback: function($$v) {
+                      _vm.$set(_vm.params, "page", $$v)
+                    },
+                    expression: "params.page"
+                  }
+                })
               ],
               1
             )
-          ],
-          1
-        )
+          : _vm._e()
       ],
       1
     )
@@ -468,17 +420,17 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./resources/js/views/Admin/categories/form.vue":
+/***/ "./resources/js/views/Admin/templates/index.vue":
 /*!******************************************************!*\
-  !*** ./resources/js/views/Admin/categories/form.vue ***!
+  !*** ./resources/js/views/Admin/templates/index.vue ***!
   \******************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _form_vue_vue_type_template_id_37d33b08_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./form.vue?vue&type=template&id=37d33b08&scoped=true& */ "./resources/js/views/Admin/categories/form.vue?vue&type=template&id=37d33b08&scoped=true&");
-/* harmony import */ var _form_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./form.vue?vue&type=script&lang=js& */ "./resources/js/views/Admin/categories/form.vue?vue&type=script&lang=js&");
+/* harmony import */ var _index_vue_vue_type_template_id_5083fa2d_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index.vue?vue&type=template&id=5083fa2d&scoped=true& */ "./resources/js/views/Admin/templates/index.vue?vue&type=template&id=5083fa2d&scoped=true&");
+/* harmony import */ var _index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./index.vue?vue&type=script&lang=js& */ "./resources/js/views/Admin/templates/index.vue?vue&type=script&lang=js&");
 /* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -488,50 +440,50 @@ __webpack_require__.r(__webpack_exports__);
 /* normalize component */
 
 var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _form_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _form_vue_vue_type_template_id_37d33b08_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _form_vue_vue_type_template_id_37d33b08_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  _index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _index_vue_vue_type_template_id_5083fa2d_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _index_vue_vue_type_template_id_5083fa2d_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
-  "37d33b08",
+  "5083fa2d",
   null
   
 )
 
 /* hot reload */
 if (false) { var api; }
-component.options.__file = "resources/js/views/Admin/categories/form.vue"
+component.options.__file = "resources/js/views/Admin/templates/index.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
 
-/***/ "./resources/js/views/Admin/categories/form.vue?vue&type=script&lang=js&":
+/***/ "./resources/js/views/Admin/templates/index.vue?vue&type=script&lang=js&":
 /*!*******************************************************************************!*\
-  !*** ./resources/js/views/Admin/categories/form.vue?vue&type=script&lang=js& ***!
+  !*** ./resources/js/views/Admin/templates/index.vue?vue&type=script&lang=js& ***!
   \*******************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_form_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./form.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/Admin/categories/form.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_form_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./index.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/Admin/templates/index.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
-/***/ "./resources/js/views/Admin/categories/form.vue?vue&type=template&id=37d33b08&scoped=true&":
+/***/ "./resources/js/views/Admin/templates/index.vue?vue&type=template&id=5083fa2d&scoped=true&":
 /*!*************************************************************************************************!*\
-  !*** ./resources/js/views/Admin/categories/form.vue?vue&type=template&id=37d33b08&scoped=true& ***!
+  !*** ./resources/js/views/Admin/templates/index.vue?vue&type=template&id=5083fa2d&scoped=true& ***!
   \*************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_form_vue_vue_type_template_id_37d33b08_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./form.vue?vue&type=template&id=37d33b08&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/Admin/categories/form.vue?vue&type=template&id=37d33b08&scoped=true&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_form_vue_vue_type_template_id_37d33b08_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_template_id_5083fa2d_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./index.vue?vue&type=template&id=5083fa2d&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/Admin/templates/index.vue?vue&type=template&id=5083fa2d&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_template_id_5083fa2d_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_form_vue_vue_type_template_id_37d33b08_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_template_id_5083fa2d_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

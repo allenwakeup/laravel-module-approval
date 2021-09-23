@@ -13,7 +13,7 @@ class TemplateRepository extends BaseRepository
     public static function list ($perPage, $condition = [], $keyword = null)
     {
         return Template::query ()
-            ->with ('parent')
+            ->with (['parent', 'category'])
             ->where (function ($query) use ($condition, $keyword) {
                 self::buildQuery ($query, $condition);
                 if (! empty ($keyword))
