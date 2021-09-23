@@ -17,5 +17,6 @@ export default {
      * 模块化接口
      */
 
-    // "moduleApprovalDepartment": baseUrl + "Admin/goodcatch/m/approval/departments", // 部门
+    "moduleApprovalCategories": baseUrl + "Admin/goodcatch/m/approval/categories", // 模版分类
+    "moduleApprovalTemplates": baseUrl + "Admin/goodcatch/m/approval/templates", // 模版
 };

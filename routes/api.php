@@ -26,6 +26,17 @@ Route::prefix('Admin')->group(function(){
             Route::prefix('approval')->name('approval.')->group(function(){
                 Route::group(['middleware'=>'jwt.admin'], function(){
 
+                    Route::post('/templates/upload/{id}','TemplateController@upload')->name('templates.upload'); // 模版文件上传
+                    Route::get('/templates/download/{id}','TemplateController@download')->name('templates.download'); // 模版文件下载
+                    Route::apiResources([
+                        'categories'=>'CategoryController', // 模版分类
+                        'templates'=>'TemplateController' // 模版管理
+                    ], [
+                        'parameters' => [
+                            'category' => 'id',
+                            'template' => 'id'
+                        ]
+                    ]);
                 });
             });
         });

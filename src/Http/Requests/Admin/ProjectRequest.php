@@ -2,6 +2,8 @@
 
 namespace Goodcatch\Modules\Approval\Http\Requests\Admin;
 
+use Goodcatch\Modules\Approval\Http\Requests\BaseRequest;
+
 class ProjectRequest extends BaseRequest
 {
 

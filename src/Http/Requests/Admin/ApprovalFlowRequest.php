@@ -2,7 +2,7 @@
 
 namespace Goodcatch\Modules\Approval\Http\Requests\Admin;
 
-use Goodcatch\Modules\Approval\Model\Admin\ApprovalFlow;
+use Goodcatch\Modules\Approval\Http\Requests\BaseRequest;
 use Goodcatch\Modules\Approval\Model\Admin\Audit;
 use Goodcatch\Modules\Approval\Model\Admin\Application;
 
