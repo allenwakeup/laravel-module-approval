@@ -137,12 +137,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       var _this2 = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
-        var modules, index, canvas, palette;
+        var vm, modules, index, canvas, palette;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                // 去除默认工具栏
+                vm = _this2; // 去除默认工具栏
+
                 modules = bpmn_js_lib_Modeler__WEBPACK_IMPORTED_MODULE_10__["default"].prototype._modules;
                 index = modules.findIndex(function (it) {
                   return it.paletteProvider;
@@ -184,13 +185,30 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   }]
                 }); // 绑定事件
 
-                _this2.initEvent(); // 初始化 流程图
+                _this2.initEvent();
 
+                if (!_this2.$isEmpty(_this2.actions.import)) {
+                  _context.next = 13;
+                  break;
+                }
 
-                _context.next = 9;
+                _context.next = 11;
                 return _this2.createNewDiagram();
 
-              case 9:
+              case 11:
+                _context.next = 14;
+                break;
+
+              case 13:
+                _this2.$get(_this2.actions.import).then(function (res) {
+                  if (res.code === 200) {
+                    vm.importXML(res.data);
+                  }
+                }).catch(function (err) {
+                  console.log(err);
+                });
+
+              case 14:
                 // 调整与正中间
                 _this2.bpmnModeler.get('canvas').zoom('fit-viewport', 'auto'); // 初始化箭头
 
@@ -202,7 +220,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
                 _this2.bpmnModeler.get('minimap').open();
 
-              case 13:
+              case 18:
               case "end":
                 return _context.stop();
             }
@@ -213,7 +231,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     createNewDiagram: function createNewDiagram() {
       // 将字符串转换成图显示出来
       this.xml = _example_bpmn__WEBPACK_IMPORTED_MODULE_17__["xmlStr"];
-      return this.bpmnModeler.importXML(this.xml);
+      return this.importXML(this.xml);
+    },
+    importXML: function importXML(xml) {
+      return this.bpmnModeler.importXML(xml);
     },
     // 绑定事件
     initEvent: function initEvent() {
@@ -365,7 +386,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 form.append('file', xmlBlob);
 
                 _this5.$postfile(_this5.actions.upload, form).then(function (res) {
-                  console.log(res);
+                  if (res.code === 200) {
+                    _this5.$emit("upload", result.data);
+                  }
                 });
 
                 _context4.next = 13;
@@ -572,7 +595,7 @@ __webpack_require__.r(__webpack_exports__);
     toggle: function toggle() {
       this.show = !this.show;
     },
-    onChangeFilePath: function onChangeFilePath(result) {
+    onUpload: function onUpload(result) {
       this.$emit("change", result);
     },
     close: function close() {
@@ -731,6 +754,23 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -740,15 +780,14 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
   data: function data() {
     return {
       form: {
-        department_id: 0,
         pid: 0,
         code: '',
         name: '',
         alias: '',
-        type: '',
         category_id: 0,
         group: '',
         path: '',
+        type: 0,
         order: 1,
         status: 1
       },
@@ -771,6 +810,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
         }]
       },
       categories: [],
+      templates: [],
       id: 0
     };
   },
@@ -826,8 +866,15 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
     onChangeStatus: function onChangeStatus(checked) {
       this.form.status = checked ? 1 : 0;
     },
-    onChangeBpmnPath: function onChangeBpmnPath(path) {
-      this.form.path = path;
+    onChangeBpmnPath: function onChangeBpmnPath(result) {
+      this.form.bpmn_file = result.path;
+    },
+    template_change: function template_change(row, form) {
+      this.form.pid = row[row.length - 1];
+
+      if (row.length === 0) {
+        this.form.pid = 0;
+      }
     },
     categorie_change: function categorie_change(row, form) {
       this.form.category_id = row[row.length - 1];
@@ -836,8 +883,23 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
         this.form.category_id = 0;
       }
     },
-    load_categories: function load_categories(selectedOptions) {
+    load_templates: function load_templates(selectedOptions) {
       var _this3 = this;
+
+      var targetOption = selectedOptions[selectedOptions.length - 1];
+      targetOption.loading = true;
+      var params = {
+        pid: targetOption.id,
+        data_type: 'select'
+      };
+      this.$get(this.$api.moduleApprovalTemplates, params).then(function (res) {
+        targetOption.loading = false;
+        targetOption.children = res.data;
+        _this3.templates = _toConsumableArray(_this3.templates);
+      });
+    },
+    load_categories: function load_categories(selectedOptions) {
+      var _this4 = this;
 
       var targetOption = selectedOptions[selectedOptions.length - 1];
       targetOption.loading = true;
@@ -848,12 +910,12 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       this.$get(this.$api.moduleApprovalCategories, params).then(function (res) {
         targetOption.loading = false;
         targetOption.children = res.data;
-        _this3.categories = _toConsumableArray(_this3.categories);
+        _this4.categories = _toConsumableArray(_this4.categories);
       });
     },
     // 获取列表
     onload: function onload() {
-      var _this4 = this;
+      var _this5 = this;
 
       // 判断你是否是编辑
       if (!this.$isEmpty(this.$route.params.id)) {
@@ -865,7 +927,14 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
         data_type: 'select'
       }).then(function (res) {
         if (res.code === 200) {
-          _this4.categories = res.data;
+          _this5.categories = res.data;
+        }
+      });
+      this.$get(this.$api.moduleApprovalTemplates, {
+        data_type: 'select'
+      }).then(function (res) {
+        if (res.code === 200) {
+          _this5.templates = res.data;
         }
       });
     }
@@ -1092,7 +1161,7 @@ var render = function() {
             [
               _c("a-bpmn-designer", {
                 attrs: { height: "800px", actions: _vm.actions },
-                on: { change: _vm.onChangeFilePath }
+                on: { upload: _vm.onUpload }
               })
             ],
             1
@@ -1189,11 +1258,50 @@ var render = function() {
                             },
                             placeholder:
                               _vm.form.category_id > 0 && _vm.form.categories
-                                ? _vm.form.categories
-                                : "请选择上级分类",
+                                ? _vm.form.categories.join(" / ")
+                                : "请选择模版分类",
                             "change-on-select": ""
                           },
                           on: { change: _vm.categorie_change }
+                        })
+                      ],
+                      1
+                    )
+                  ],
+                  1
+                )
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "a-row",
+              { attrs: { gutter: 1 } },
+              [
+                _c(
+                  "a-col",
+                  { attrs: { span: 12 } },
+                  [
+                    _c(
+                      "a-form-model-item",
+                      { attrs: { label: "上一级" } },
+                      [
+                        _c("a-cascader", {
+                          attrs: {
+                            "load-data": _vm.load_templates,
+                            options: _vm.templates,
+                            fieldNames: {
+                              label: "name",
+                              value: "id",
+                              children: "children"
+                            },
+                            placeholder:
+                              _vm.form.pid > 0 && _vm.form.path_text
+                                ? _vm.form.path_text.join(" / ")
+                                : "请选择上一级",
+                            "change-on-select": ""
+                          },
+                          on: { change: _vm.template_change }
                         })
                       ],
                       1
@@ -1311,37 +1419,39 @@ var render = function() {
                   1
                 ),
                 _vm._v(" "),
-                _c(
-                  "a-col",
-                  { attrs: { span: 12 } },
-                  [
-                    _c(
-                      "a-form-model-item",
-                      { attrs: { label: "BPMN", prop: "bpmn" } },
+                _vm.id > 0
+                  ? _c(
+                      "a-col",
+                      { attrs: { span: 12 } },
                       [
-                        _c("a-bpmn-input", {
-                          attrs: {
-                            file: _vm.form.path,
-                            actions: {
-                              upload:
-                                _vm.$api.moduleApprovalTemplates +
-                                "/upload/" +
-                                _vm.id,
-                              import:
-                                _vm.$api.moduleApprovalTemplates +
-                                "/download/" +
-                                _vm.id
-                            },
-                            title: "流程设计器"
-                          },
-                          on: { change: _vm.onChangeBpmnPath }
-                        })
+                        _c(
+                          "a-form-model-item",
+                          { attrs: { label: "BPMN", prop: "bpmn" } },
+                          [
+                            _c("a-bpmn-input", {
+                              attrs: {
+                                file: _vm.form.bpmn_file,
+                                actions: {
+                                  upload:
+                                    _vm.$api.moduleApprovalTemplates +
+                                    "/upload/" +
+                                    _vm.id,
+                                  import:
+                                    _vm.$api.moduleApprovalTemplates +
+                                    "/download/" +
+                                    _vm.id
+                                },
+                                title: "流程设计器"
+                              },
+                              on: { change: _vm.onChangeBpmnPath }
+                            })
+                          ],
+                          1
+                        )
                       ],
                       1
                     )
-                  ],
-                  1
-                )
+                  : _vm._e()
               ],
               1
             ),
@@ -1356,17 +1466,31 @@ var render = function() {
                   [
                     _c(
                       "a-form-model-item",
-                      { attrs: { label: "类型", prop: "type" } },
+                      { attrs: { label: "类型" } },
                       [
-                        _c("a-input", {
-                          model: {
-                            value: _vm.form.type,
-                            callback: function($$v) {
-                              _vm.$set(_vm.form, "type", $$v)
-                            },
-                            expression: "form.type"
-                          }
-                        })
+                        _c(
+                          "a-radio-group",
+                          {
+                            attrs: { name: "radioGroup", "default-value": 0 },
+                            model: {
+                              value: _vm.form.type,
+                              callback: function($$v) {
+                                _vm.$set(_vm.form, "type", $$v)
+                              },
+                              expression: "form.type"
+                            }
+                          },
+                          [
+                            _c("a-radio", { attrs: { value: 0 } }, [
+                              _vm._v("默认")
+                            ]),
+                            _vm._v(" "),
+                            _c("a-radio", { attrs: { value: 1 } }, [
+                              _vm._v("其他")
+                            ])
+                          ],
+                          1
+                        )
                       ],
                       1
                     )

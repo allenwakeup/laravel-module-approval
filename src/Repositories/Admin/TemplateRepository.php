@@ -26,6 +26,21 @@ class TemplateRepository extends BaseRepository
 
     }
 
+    public static function selectTree ($pid = 0)
+    {
+        return Template::select('id', 'pid', 'name', 'order')
+            ->with ('children')
+            ->where('pid', $pid)
+            ->get ()
+            ->map(function (Template $model){
+                $data = $model->toArray ();
+                $data ['isLeaf'] = ($model->children->count () === 0);
+                unset($data['children']);
+                return $data;
+            })->sortBy('order');
+
+    }
+
     public static function add ($data)
     {
         return Template::query ()->create ($data);
@@ -39,6 +54,11 @@ class TemplateRepository extends BaseRepository
     public static function find ($id)
     {
         return Template::query ()->find ($id);
+    }
+
+    public static function findWidthCategory ($id)
+    {
+        return Template::query ()->with(['parent','category'])->find ($id);
     }
 
     public static function delete ($id)

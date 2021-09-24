@@ -67,6 +67,14 @@ class Template extends Model
         ]
     ];
 
+    public function getCategoriesAttribute($val){
+        return empty($this->attributes['categories']) ? [] : explode(',', $val);
+    }
+
+    public function getPathTextAttribute($val){
+        return empty($this->attributes['path_text']) ? [] : explode(',', $val);
+    }
+
     public function parent ()
     {
         return $this->belongsTo ('Goodcatch\Modules\Approval\Model\Admin\Template', 'pid');

@@ -3,7 +3,9 @@
 namespace Goodcatch\Modules\Approval\Providers;
 
 use Goodcatch\Modules\Approval\Model\Admin\Category;
+use Goodcatch\Modules\Approval\Model\Admin\Template;
 use Goodcatch\Modules\Approval\Observers\CategoryObserver;
+use Goodcatch\Modules\Approval\Observers\TemplateObserver;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Database\Eloquent\Factory;
 
@@ -32,6 +34,7 @@ class ApprovalServiceProvider extends ServiceProvider
         $this->loadMigrationsFrom(module_path($this->moduleName, 'database/migrations'));
 
         Category::observe (CategoryObserver::class);
+        Template::observe (TemplateObserver::class);
     }
 
     /**

@@ -21,8 +21,12 @@ class CreateApTemplatesTable extends Migration
             $table->string ('name', 50)->nullable (false)->comment ('名称');
             $table->string ('alias', 50)->nullable ()->comment ('别名');
             $table->string ('description', 255)->nullable ()->comment ('描述');
-            $table->string ('path', 255)->nullable ()->comment ('BPMN文件地址');
+            $table->string ('bpmn_file', 255)->nullable ()->comment ('BPMN文件地址');
             $table->unsignedInteger ('category_id')->nullable ()->comment ('分类ID');
+            $table->string('categories', 255)->default('')->comment('部门层级');
+            $table->string('path', 255)->default('')->comment('路径');
+            $table->string('path_text', 255)->default('')->comment('路径名称');
+            $table->unsignedInteger('level')->default(0)->comment('分级');
             $table->unsignedInteger('type')->default(0)->comment('类型');
             $table->string ('group', 20)->nullable ()->comment ('分组');
             $table->unsignedInteger('order')->default(0)->comment('排序');

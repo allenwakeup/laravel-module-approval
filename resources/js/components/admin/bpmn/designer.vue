@@ -82,6 +82,7 @@ export default {
     },
     methods: {
         async init() {
+            const vm = this;
             // 去除默认工具栏
             const modules = BpmnModeler.prototype._modules
             const index = modules.findIndex(it => it.paletteProvider)
@@ -132,8 +133,22 @@ export default {
             // 绑定事件
             this.initEvent()
 
-            // 初始化 流程图
-            await this.createNewDiagram()
+            if(this.$isEmpty(this.actions.import)){
+                // 初始化 流程图
+                await this.createNewDiagram()
+            }else{
+                this.$get(this.actions.import).then(res => {
+                    if(res.code === 200){
+
+                        vm.importXML (res.data);
+
+                    }
+                }).catch(err => {
+
+                    console.log(err)
+                });
+            }
+
 
             // 调整与正中间
             this.bpmnModeler.get('canvas').zoom('fit-viewport', 'auto')
@@ -149,7 +164,11 @@ export default {
         createNewDiagram() {
             // 将字符串转换成图显示出来
             this.xml = xmlStr
-            return this.bpmnModeler.importXML(this.xml)
+            return this.importXML(this.xml)
+        },
+
+        importXML(xml){
+            return this.bpmnModeler.importXML(xml)
         },
 
         // 绑定事件
@@ -247,7 +266,9 @@ export default {
                 const form = new FormData();
                 form.append('file', xmlBlob);
                 this.$postfile(this.actions.upload, form).then(res=> {
-                    console.log(res);
+                    if(res.code === 200){
+                        this.$emit("upload", result.data);
+                    }
                 })
             } catch (err) {
 

@@ -8,15 +8,14 @@ namespace Goodcatch\Modules\Approval\Http\Controllers\Admin;
 
 use Goodcatch\Modules\Approval\Http\Requests\Admin\TemplateRequest;
 use Goodcatch\Modules\Approval\Http\Resources\Admin\TemplateResource\TemplateCollection;
-use Goodcatch\Modules\Approval\Model\Admin\Template;
 use Goodcatch\Modules\Approval\Repositories\Admin\TemplateRepository;
 use App\Http\Controllers\Controller;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
-use Illuminate\Support\Arr;
-use Illuminate\View\View;
+
 
 class TemplateController extends Controller
 {
@@ -29,13 +28,23 @@ class TemplateController extends Controller
      */
     public function index(Request $request)
     {
+        $data_type = $request->get ('data_type');
+        $condition = $request->only(['pid', 'name']);
 
-        return $this->success(
-            new TemplateCollection(TemplateRepository::list(
+
+        if ($data_type === 'select') {
+            $data = TemplateRepository::selectTree ($request->pid ?? 0);
+        } else {
+            $data = TemplateRepository::list(
                 $request->per_page??30,
-                $request->only(['name']),
+                $condition,
                 $request->keyword
-            )));
+            );
+        }
+        if($data instanceof Collection){
+            return $this->success($data);
+        }
+        return $this->success(new TemplateCollection($data, __('base.success')));
     }
 
     /**
@@ -46,7 +55,7 @@ class TemplateController extends Controller
      */
     public function show($id)
     {
-        return $this->success(TemplateRepository::find($id), __('base.success'));
+        return $this->success(TemplateRepository::findWidthCategory($id), __('base.success'));
     }
 
     /**
@@ -114,10 +123,10 @@ class TemplateController extends Controller
      */
     public function download(Request $request, $id){
         $template = TemplateRepository::find($id);
-        if(is_null($template)) {
-            $file = storage_path($template->path);
+        if(! is_null($template) && ! empty($template->bpmn_file)) {
+            $file = storage_path($template->bpmn_file);
             if (file_exists($file) && is_readable($file)) {
-                header("content-type: text/xml;charset=utf-8");
+                header("content-type: application/bpmn20-xml;charset=utf-8");
                 return response()->download($file);
             }
         }
@@ -142,11 +151,12 @@ class TemplateController extends Controller
         }
         $template = TemplateRepository::find($id);
 
-        $path = $upload_path = storage_path('app/process/' . date('Ym'). '/' . date('d'));
+        if(is_null($template)){
+            return $this->error('no template exists');
+        }
 
-        if(is_null($template) || empty($template->path)){
-            // 文件具体存储的物理路径，`public_path()` 获取的是 `public` 文件夹的物理路径。
-            // 值如：/home/vagrant/Code/larabbs/public/uploads/images/avatars/201709/21/
+        if(empty($template->bpmn_file)){
+            $path = 'app/process/' . date('Ym'). '/' . date('d');
 
             // 获取文件的后缀名，因图片从剪贴板里黏贴时后缀名为空，所以此处确保后缀一直存在
             $extension = strtolower($file->getClientOriginalExtension()) ?: 'bpmn';
@@ -157,14 +167,21 @@ class TemplateController extends Controller
                     'extension' => $extension
                 ]);
             }
-            $path = $path . '/approval_template_' . time() . '_' . str_random(10) . '.' . $extension;
+            $file_name = 'approval_template_' . time() . '_' . str_random(10) . '.' . $extension;
         } else {
-            $path = $template->path;
+            $file_name = basename($template->bpmn_file);
+            $path = dirname($template->bpmn_file);
         }
 
         // 移动到我们的目标存储路径中
-        $request->file->move($path);
+        $request->file->move(storage_path($path), $file_name);
 
-        return $this->success([ 'path' => $path ], __('base.success'));
+        $file_path = $path . '/' . $file_name;
+        DB::table($template->getTable())->where('id', $template->id)->update([
+            'bpmn_file' => $file_path
+        ]);
+        $template->save();
+
+        return $this->success([ 'path' => $file_path ], __('base.success'));
     }
 }

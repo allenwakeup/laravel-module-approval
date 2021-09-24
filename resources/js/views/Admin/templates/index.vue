@@ -1,6 +1,9 @@
 <template>
     <div>
         <div class="admin_table_page_title">模版列表</div>
+
+
+
         <div class="unline underm"></div>
 
         <div class="admin_table_handle_btn">
@@ -16,7 +19,7 @@
                     {{ record.type === 0 ? '默认' : '其他' }}
                 </span>
                 <span slot="category" slot-scope="record">
-                    {{ (record.category && recored.category.path_text.length > 0) ? record.path_text.join (' / ') : '--' }}
+                    {{ (record.categories && record.categories.length > 0) ? record.categories.join (' / ') : '--' }}
                 </span>
                 <a-switch
                     slot="status"
@@ -54,8 +57,8 @@ export default {
               {title:'上级', scopedSlots:{ customRender: 'pid' }, width: 120},
               {title:'分类', scopedSlots:{ customRender: 'category' }, width: 220},
               {title:'编码',dataIndex:'code', width: 120},
-              {title:'名称',dataIndex:'name', width: 120},
-              {title:'分组', scopedSlots:{ customRender: 'group' }, width: 120},
+              {title:'名称',dataIndex: 'name' },
+              {title:'分组', dataIndex: 'group', width: 120},
               {title:'类型', scopedSlots:{ customRender: 'type' }, width: 120},
               {title:'排序',dataIndex:'order', width: 90},
               {title:'状态', scopedSlots:{ customRender: 'status' }, width: 120},
@@ -76,6 +79,7 @@ export default {
                 '其他'
             ]
           },
+          breadcrumb: [],
           loading_status: {}
 
       };

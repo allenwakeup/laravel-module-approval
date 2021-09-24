@@ -54,6 +54,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {},
   props: {},
@@ -90,13 +93,10 @@ __webpack_require__.r(__webpack_exports__);
         width: 120
       }, {
         title: '名称',
-        dataIndex: 'name',
-        width: 120
+        dataIndex: 'name'
       }, {
         title: '分组',
-        scopedSlots: {
-          customRender: 'group'
-        },
+        dataIndex: 'group',
         width: 120
       }, {
         title: '类型',
@@ -137,6 +137,7 @@ __webpack_require__.r(__webpack_exports__);
         },
         gender: ['默认', '男', '女', '其他']
       },
+      breadcrumb: [],
       loading_status: {}
     };
   },
@@ -318,9 +319,8 @@ var render = function() {
                   _vm._v(
                     "\n                " +
                       _vm._s(
-                        record.category &&
-                          _vm.recored.category.path_text.length > 0
-                          ? record.path_text.join(" / ")
+                        record.categories && record.categories.length > 0
+                          ? record.categories.join(" / ")
                           : "--"
                       ) +
                       "\n            "

@@ -14,7 +14,7 @@
                 :footer="null"
                 height="800px">
             <a-layout-content>
-                <a-bpmn-designer height="800px" :actions="actions" @change="onChangeFilePath"></a-bpmn-designer>
+                <a-bpmn-designer height="800px" :actions="actions" @upload="onUpload"></a-bpmn-designer>
             </a-layout-content>
         </a-modal>
     </div>
@@ -58,7 +58,7 @@
             toggle(){
                 this.show = !this.show;
             },
-            onChangeFilePath(result){
+            onUpload(result){
                 this.$emit("change", result);
             },
             close(){
