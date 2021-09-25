@@ -3,7 +3,8 @@
         <a-input v-model="file" disabled>
             <a-icon slot="addonAfter" type="edit" @click="toggle"/>
         </a-input>
-        <a-modal
+        <a-draggable-modal
+                :draggable="true"
                 :title="title"
                 :body-style="{padding: 0, height: '800px' }"
                 :dialog-style="{ top: 0, left: 0 }"
@@ -16,22 +17,24 @@
             <a-layout-content>
                 <a-bpmn-designer height="800px" :actions="actions" @upload="onUpload"></a-bpmn-designer>
             </a-layout-content>
-        </a-modal>
+        </a-draggable-modal>
     </div>
 </template>
 <script>
     import ABpmnDesigner from './designer'
+    import ADraggableModal from '../amodal'
 
     export default {
         name: "ABpmnInput",
         components: {
-            ABpmnDesigner
+            ABpmnDesigner,
+            ADraggableModal
         },
         props: {
             file: {
                 required: true,
                 type: String,
-                default: ""
+                default: ''
             },
             actions: {
                 required: true,

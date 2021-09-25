@@ -14,21 +14,19 @@ return [
 
 
     'admin' => [
-
+        'template' => [
+            'bpmn' => [
+                'empty' => 'bpmn 文件未上传'
+            ],
+            'download' => [
+                'failed' => '未找到模版文件'
+            ],
+        ]
     ],
 
-    'app' => [
-        'menu' => [
-            'admin' => [
-                'm' => [
-                    'approval' => [
-                        'index' => '审批'
-                    ]
-                ]
-            ]
 
-        ]
-    ]
+
+
 
 
 ];

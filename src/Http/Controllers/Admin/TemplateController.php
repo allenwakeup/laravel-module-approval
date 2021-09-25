@@ -124,15 +124,15 @@ class TemplateController extends Controller
     public function download(Request $request, $id){
         $template = TemplateRepository::find($id);
         if(! is_null($template) && ! empty($template->bpmn_file)) {
-            $file = storage_path($template->bpmn_file);
+            $file = storage_path(bpmn_path($template->bpmn_file));
             if (file_exists($file) && is_readable($file)) {
                 header("content-type: application/bpmn20-xml;charset=utf-8");
                 return response()->download($file);
             }
+        } else {
+            return $this->error(__('approval::pages.admin.template.bpmn.empty'));
         }
-        return $this->error('no template found', [
-            '$id' => $id
-        ]);
+        return $this->error(__('approval::pages.admin.template.download.failed'));
 
     }
 
@@ -156,7 +156,8 @@ class TemplateController extends Controller
         }
 
         if(empty($template->bpmn_file)){
-            $path = 'app/process/' . date('Ym'). '/' . date('d');
+
+            $path = date('Ym'). '/' . date('d');
 
             // 获取文件的后缀名，因图片从剪贴板里黏贴时后缀名为空，所以此处确保后缀一直存在
             $extension = strtolower($file->getClientOriginalExtension()) ?: 'bpmn';
@@ -174,7 +175,7 @@ class TemplateController extends Controller
         }
 
         // 移动到我们的目标存储路径中
-        $request->file->move(storage_path($path), $file_name);
+        $request->file->move(storage_path(bpmn_path($path)), $file_name);
 
         $file_path = $path . '/' . $file_name;
         DB::table($template->getTable())->where('id', $template->id)->update([

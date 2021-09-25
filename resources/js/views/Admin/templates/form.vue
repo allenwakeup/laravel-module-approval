@@ -59,9 +59,9 @@
                     <a-col :span="12" v-if="id > 0">
                         <a-form-model-item label="BPMN" prop="bpmn">
                             <a-bpmn-input
-                                :file="form.bpmn_file"
+                                :file="form.bpmn_file || ''"
                                 :actions="{ upload: $api.moduleApprovalTemplates + '/upload/' + id, import: $api.moduleApprovalTemplates + '/download/' + id }"
-                                title="流程设计器"
+                                :title="(form.path_text ? form.path_text.join(' / ') : '') + form.name + '流程设计器'"
                                 @change="onChangeBpmnPath"></a-bpmn-input>
                         </a-form-model-item>
                     </a-col>
@@ -127,7 +127,7 @@ export default {
                 alias: '',
                 category_id: 0,
                 group: '',
-                path: '',
+                bpmn_file: '',
                 type: 0,
                 order: 1,
                 status: 1
@@ -197,6 +197,7 @@ export default {
             this.form.status = checked ? 1 : 0;
         },
         onChangeBpmnPath(result) {
+            console.log(result);
             this.form.bpmn_file = result.path;
         },
         template_change(row,form){

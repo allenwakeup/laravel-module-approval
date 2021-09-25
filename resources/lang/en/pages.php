@@ -13,20 +13,16 @@ return [
     */
 
     'admin' => [
-
+        'template' => [
+            'bpmn' => [
+                'empty' => 'no bpmn file upload yet'
+            ],
+            'download' => [
+                'failed' => 'bpmn file not found'
+            ],
+        ]
     ],
 
-    'app' => [
-        'menu' => [
-            'admin' => [
-                'm' => [
-                    'approval' => [
-                        'index' => 'Approval Process'
-                    ]
-                ]
-            ]
 
-        ]
-    ]
 
 ];

@@ -1,5 +1,235 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[1],{
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/amodal/AntModal.vue?vue&type=script&lang=js&":
+/*!********************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/admin/amodal/AntModal.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var core_js_modules_es_array_includes_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! core-js/modules/es.array.includes.js */ "./node_modules/core-js/modules/es.array.includes.js");
+/* harmony import */ var core_js_modules_es_array_includes_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_includes_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var core_js_modules_es_string_includes_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! core-js/modules/es.string.includes.js */ "./node_modules/core-js/modules/es.string.includes.js");
+/* harmony import */ var core_js_modules_es_string_includes_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_string_includes_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var core_js_modules_es_regexp_exec_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! core-js/modules/es.regexp.exec.js */ "./node_modules/core-js/modules/es.regexp.exec.js");
+/* harmony import */ var core_js_modules_es_regexp_exec_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_regexp_exec_js__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var core_js_modules_es_string_replace_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! core-js/modules/es.string.replace.js */ "./node_modules/core-js/modules/es.string.replace.js");
+/* harmony import */ var core_js_modules_es_string_replace_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_string_replace_js__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var core_js_modules_es_array_concat_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! core-js/modules/es.array.concat.js */ "./node_modules/core-js/modules/es.array.concat.js");
+/* harmony import */ var core_js_modules_es_array_concat_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_concat_js__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var core_js_modules_es_object_to_string_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! core-js/modules/es.object.to-string.js */ "./node_modules/core-js/modules/es.object.to-string.js");
+/* harmony import */ var core_js_modules_es_object_to_string_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_object_to_string_js__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var core_js_modules_es_promise_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! core-js/modules/es.promise.js */ "./node_modules/core-js/modules/es.promise.js");
+/* harmony import */ var core_js_modules_es_promise_js__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_promise_js__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var core_js_modules_es_array_slice_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! core-js/modules/es.array.slice.js */ "./node_modules/core-js/modules/es.array.slice.js");
+/* harmony import */ var core_js_modules_es_array_slice_js__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_slice_js__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var core_js_modules_es_function_name_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! core-js/modules/es.function.name.js */ "./node_modules/core-js/modules/es.function.name.js");
+/* harmony import */ var core_js_modules_es_function_name_js__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_function_name_js__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var core_js_modules_es_array_from_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! core-js/modules/es.array.from.js */ "./node_modules/core-js/modules/es.array.from.js");
+/* harmony import */ var core_js_modules_es_array_from_js__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_from_js__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var core_js_modules_es_string_iterator_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! core-js/modules/es.string.iterator.js */ "./node_modules/core-js/modules/es.string.iterator.js");
+/* harmony import */ var core_js_modules_es_string_iterator_js__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_string_iterator_js__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var core_js_modules_es_symbol_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! core-js/modules/es.symbol.js */ "./node_modules/core-js/modules/es.symbol.js");
+/* harmony import */ var core_js_modules_es_symbol_js__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_symbol_js__WEBPACK_IMPORTED_MODULE_11__);
+/* harmony import */ var core_js_modules_es_symbol_description_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! core-js/modules/es.symbol.description.js */ "./node_modules/core-js/modules/es.symbol.description.js");
+/* harmony import */ var core_js_modules_es_symbol_description_js__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_symbol_description_js__WEBPACK_IMPORTED_MODULE_12__);
+/* harmony import */ var core_js_modules_es_symbol_iterator_js__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! core-js/modules/es.symbol.iterator.js */ "./node_modules/core-js/modules/es.symbol.iterator.js");
+/* harmony import */ var core_js_modules_es_symbol_iterator_js__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_symbol_iterator_js__WEBPACK_IMPORTED_MODULE_13__);
+/* harmony import */ var core_js_modules_es_array_iterator_js__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! core-js/modules/es.array.iterator.js */ "./node_modules/core-js/modules/es.array.iterator.js");
+/* harmony import */ var core_js_modules_es_array_iterator_js__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_iterator_js__WEBPACK_IMPORTED_MODULE_14__);
+/* harmony import */ var core_js_modules_web_dom_collections_iterator_js__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! core-js/modules/web.dom-collections.iterator.js */ "./node_modules/core-js/modules/web.dom-collections.iterator.js");
+/* harmony import */ var core_js_modules_web_dom_collections_iterator_js__WEBPACK_IMPORTED_MODULE_15___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_dom_collections_iterator_js__WEBPACK_IMPORTED_MODULE_15__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_16___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_16__);
+/* harmony import */ var ant_design_vue__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ant-design-vue */ "./node_modules/ant-design-vue/es/index.js");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  globName: 'AModal',
+  mixins: [ant_design_vue__WEBPACK_IMPORTED_MODULE_17__["Modal"]],
+  props: {
+    // 是否开启拖拽事件
+    draggable: {
+      type: Boolean,
+      default: true
+    },
+    centered: {
+      type: Boolean,
+      default: true
+    },
+    cancelText: {
+      type: String,
+      default: '关闭'
+    },
+    okText: {
+      type: String,
+      default: '保存'
+    }
+  },
+  watch: {
+    visible: {
+      handler: function handler(visible) {
+        var _this = this;
+
+        return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_16___default.a.mark(function _callee() {
+          return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_16___default.a.wrap(function _callee$(_context) {
+            while (1) {
+              switch (_context.prev = _context.next) {
+                case 0:
+                  _this.$nextTick();
+
+                  setTimeout(function () {
+                    _this.handleModalDrag(visible);
+                  }, 30);
+
+                case 2:
+                case "end":
+                  return _context.stop();
+              }
+            }
+          }, _callee);
+        }))();
+      }
+    }
+  },
+  methods: {
+    handleModalDrag: function handleModalDrag(visible) {
+      if (visible) {
+        var dragWraps = document.querySelectorAll('.ant-modal-wrap');
+
+        var _iterator = _createForOfIteratorHelper(dragWraps),
+            _step;
+
+        try {
+          for (_iterator.s(); !(_step = _iterator.n()).done;) {
+            var wrap = _step.value;
+            var display = this.getStyle(wrap, 'display');
+            var draggable = wrap.getAttribute('data-drag');
+
+            if (display !== 'none') {
+              // 拖拽位置
+              draggable === null && this.drag(wrap);
+            }
+          }
+        } catch (err) {
+          _iterator.e(err);
+        } finally {
+          _iterator.f();
+        }
+      }
+    },
+    getStyle: function getStyle(dom, attr) {
+      if (window.document.currentStyle) {
+        return dom.currentStyle[attr];
+      } else {
+        return getComputedStyle(dom, false)[attr];
+      }
+    },
+    drag: function drag(wrap) {
+      var _this2 = this;
+
+      if (!wrap) return;
+      wrap.setAttribute('data-drag', this.draggable);
+      var dialogHeaderEl = wrap.querySelector('.ant-modal-header');
+      var dragDom = wrap.querySelector('.ant-modal');
+      if (!dialogHeaderEl || !dragDom || !this.draggable) return;
+      dialogHeaderEl.style.cursor = 'move'; // const sty =
+      //   dragDom.currentStyle || window.getComputedStyle(dragDom, null);
+
+      dialogHeaderEl.onmousedown = function (e) {
+        // 鼠标按下，计算当前元素距离可视区的距离
+        var disX = e.clientX;
+        var disY = e.clientY;
+        var screenWidth = document.body.clientWidth; // body当前宽度
+
+        var screenHeight = document.documentElement.clientHeight; // 可见区域高度(应为body高度，可某些环境下无法获取)
+
+        var dragDomWidth = dragDom.offsetWidth; // 对话框宽度
+
+        var dragDomheight = dragDom.offsetHeight; // 对话框高度
+
+        var minDragDomLeft = dragDom.offsetLeft;
+        var maxDragDomLeft = screenWidth - dragDom.offsetLeft - dragDomWidth;
+        var minDragDomTop = dragDom.offsetTop;
+        var maxDragDomTop = screenHeight - dragDom.offsetTop - dragDomheight; // 获取到的值带px 正则匹配替换
+
+        var domLeft = _this2.getStyle(dragDom, 'left');
+
+        var domTop = _this2.getStyle(dragDom, 'top');
+
+        var styL = domLeft;
+        var styT = domTop; // 注意在ie中 第一次获取到的值为组件自带50% 移动之后赋值为px
+
+        if (domLeft.includes('%')) {
+          styL = +document.body.clientWidth * (+domLeft.replace(/%/g, '') / 100);
+          styT = +document.body.clientHeight * (+domTop.replace(/%/g, '') / 100);
+        } else {
+          styL = +domLeft.replace(/px/g, '');
+          styT = +domTop.replace(/px/g, '');
+        }
+
+        document.onmousemove = function (e) {
+          // 通过事件委托，计算移动的距离
+          var left = e.clientX - disX;
+          var top = e.clientY - disY; // 边界处理
+
+          if (-left > minDragDomLeft) {
+            left = -minDragDomLeft;
+          } else if (left > maxDragDomLeft) {
+            left = maxDragDomLeft;
+          }
+
+          if (-top > minDragDomTop) {
+            top = -minDragDomTop;
+          } else if (top > maxDragDomTop) {
+            top = maxDragDomTop;
+          } // 移动当前元素
+
+
+          dragDom.style.cssText += ";left:".concat(left + styL, "px;top:").concat(top + styT, "px;");
+        };
+
+        document.onmouseup = function (e) {
+          document.onmousemove = null;
+          document.onmouseup = null;
+        };
+      };
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/bpmn/designer.vue?vue&type=script&lang=js&":
 /*!******************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/admin/bpmn/designer.vue?vue&type=script&lang=js& ***!
@@ -25,22 +255,37 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var core_js_modules_web_dom_collections_iterator_js__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_dom_collections_iterator_js__WEBPACK_IMPORTED_MODULE_6__);
 /* harmony import */ var core_js_modules_web_url_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! core-js/modules/web.url.js */ "./node_modules/core-js/modules/web.url.js");
 /* harmony import */ var core_js_modules_web_url_js__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_url_js__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var core_js_modules_es_object_keys_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! core-js/modules/es.object.keys.js */ "./node_modules/core-js/modules/es.object.keys.js");
-/* harmony import */ var core_js_modules_es_object_keys_js__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_object_keys_js__WEBPACK_IMPORTED_MODULE_8__);
-/* harmony import */ var core_js_modules_es_promise_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! core-js/modules/es.promise.js */ "./node_modules/core-js/modules/es.promise.js");
-/* harmony import */ var core_js_modules_es_promise_js__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_promise_js__WEBPACK_IMPORTED_MODULE_9__);
-/* harmony import */ var bpmn_js_lib_Modeler__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! bpmn-js/lib/Modeler */ "./node_modules/bpmn-js/lib/Modeler.js");
-/* harmony import */ var _customBpmn_palette__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./customBpmn/palette */ "./resources/js/components/admin/bpmn/customBpmn/palette/index.js");
-/* harmony import */ var _customBpmn_renderer__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./customBpmn/renderer */ "./resources/js/components/admin/bpmn/customBpmn/renderer/index.js");
-/* harmony import */ var _customBpmn_context_pad__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./customBpmn/context-pad */ "./resources/js/components/admin/bpmn/customBpmn/context-pad/index.js");
-/* harmony import */ var _config_paletteEntries__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./config/paletteEntries */ "./resources/js/components/admin/bpmn/config/paletteEntries.js");
-/* harmony import */ var _config_etl_json__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./config/etl.json */ "./resources/js/components/admin/bpmn/config/etl.json");
-var _config_etl_json__WEBPACK_IMPORTED_MODULE_15___namespace = /*#__PURE__*/__webpack_require__.t(/*! ./config/etl.json */ "./resources/js/components/admin/bpmn/config/etl.json", 1);
-/* harmony import */ var diagram_js_minimap__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! diagram-js-minimap */ "./node_modules/diagram-js-minimap/dist/index.esm.js");
-/* harmony import */ var _example_bpmn__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./example.bpmn */ "./resources/js/components/admin/bpmn/example.bpmn");
-/* harmony import */ var tiny_svg__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! tiny-svg */ "./node_modules/tiny-svg/dist/index.esm.js");
-/* harmony import */ var min_dom__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! min-dom */ "./node_modules/min-dom/dist/index.esm.js");
-/* harmony import */ var _components_admin_bpmn_customBpmn_utils_index_js__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! @/components/admin/bpmn/customBpmn/utils/index.js */ "./resources/js/components/admin/bpmn/customBpmn/utils/index.js");
+/* harmony import */ var core_js_modules_web_url_search_params_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! core-js/modules/web.url-search-params.js */ "./node_modules/core-js/modules/web.url-search-params.js");
+/* harmony import */ var core_js_modules_web_url_search_params_js__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_url_search_params_js__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var core_js_modules_es_object_keys_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! core-js/modules/es.object.keys.js */ "./node_modules/core-js/modules/es.object.keys.js");
+/* harmony import */ var core_js_modules_es_object_keys_js__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_object_keys_js__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var core_js_modules_es_promise_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! core-js/modules/es.promise.js */ "./node_modules/core-js/modules/es.promise.js");
+/* harmony import */ var core_js_modules_es_promise_js__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_promise_js__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var core_js_modules_es_symbol_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! core-js/modules/es.symbol.js */ "./node_modules/core-js/modules/es.symbol.js");
+/* harmony import */ var core_js_modules_es_symbol_js__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_symbol_js__WEBPACK_IMPORTED_MODULE_11__);
+/* harmony import */ var core_js_modules_es_symbol_description_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! core-js/modules/es.symbol.description.js */ "./node_modules/core-js/modules/es.symbol.description.js");
+/* harmony import */ var core_js_modules_es_symbol_description_js__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_symbol_description_js__WEBPACK_IMPORTED_MODULE_12__);
+/* harmony import */ var core_js_modules_es_symbol_iterator_js__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! core-js/modules/es.symbol.iterator.js */ "./node_modules/core-js/modules/es.symbol.iterator.js");
+/* harmony import */ var core_js_modules_es_symbol_iterator_js__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_symbol_iterator_js__WEBPACK_IMPORTED_MODULE_13__);
+/* harmony import */ var bpmn_js_lib_Modeler__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! bpmn-js/lib/Modeler */ "./node_modules/bpmn-js/lib/Modeler.js");
+/* harmony import */ var _customBpmn_palette__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./customBpmn/palette */ "./resources/js/components/admin/bpmn/customBpmn/palette/index.js");
+/* harmony import */ var _customBpmn_renderer__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./customBpmn/renderer */ "./resources/js/components/admin/bpmn/customBpmn/renderer/index.js");
+/* harmony import */ var _customBpmn_context_pad__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./customBpmn/context-pad */ "./resources/js/components/admin/bpmn/customBpmn/context-pad/index.js");
+/* harmony import */ var _config_paletteEntries__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./config/paletteEntries */ "./resources/js/components/admin/bpmn/config/paletteEntries.js");
+/* harmony import */ var _config_etl_json__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./config/etl.json */ "./resources/js/components/admin/bpmn/config/etl.json");
+var _config_etl_json__WEBPACK_IMPORTED_MODULE_19___namespace = /*#__PURE__*/__webpack_require__.t(/*! ./config/etl.json */ "./resources/js/components/admin/bpmn/config/etl.json", 1);
+/* harmony import */ var diagram_js_minimap__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! diagram-js-minimap */ "./node_modules/diagram-js-minimap/dist/index.esm.js");
+/* harmony import */ var _example_bpmn__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./example.bpmn */ "./resources/js/components/admin/bpmn/example.bpmn");
+/* harmony import */ var tiny_svg__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! tiny-svg */ "./node_modules/tiny-svg/dist/index.esm.js");
+/* harmony import */ var min_dom__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! min-dom */ "./node_modules/min-dom/dist/index.esm.js");
+/* harmony import */ var _components_admin_bpmn_customBpmn_utils_index_js__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! @/components/admin/bpmn/customBpmn/utils/index.js */ "./resources/js/components/admin/bpmn/customBpmn/utils/index.js");
+
+
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+
+
+
 
 
 
@@ -144,7 +389,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               case 0:
                 vm = _this2; // 去除默认工具栏
 
-                modules = bpmn_js_lib_Modeler__WEBPACK_IMPORTED_MODULE_10__["default"].prototype._modules;
+                modules = bpmn_js_lib_Modeler__WEBPACK_IMPORTED_MODULE_14__["default"].prototype._modules;
                 index = modules.findIndex(function (it) {
                   return it.paletteProvider;
                 });
@@ -152,27 +397,27 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 canvas = _this2.$refs.canvas;
                 palette = _this2.$refs.palette; // 建模
 
-                _this2.bpmnModeler = new bpmn_js_lib_Modeler__WEBPACK_IMPORTED_MODULE_10__["default"]({
+                _this2.bpmnModeler = new bpmn_js_lib_Modeler__WEBPACK_IMPORTED_MODULE_14__["default"]({
                   // 主要容器
                   container: canvas,
                   // 工具栏容器
                   paletteContainer: palette,
                   // 工具栏配置及实现自定义渲染方法
-                  paletteEntries: _config_paletteEntries__WEBPACK_IMPORTED_MODULE_14__["default"],
+                  paletteEntries: _config_paletteEntries__WEBPACK_IMPORTED_MODULE_18__["default"],
                   // 开启键盘快捷
                   keyboard: {
                     bindTo: document
                   },
                   // 添加自定义元模型
                   moddleExtensions: {
-                    etl: _config_etl_json__WEBPACK_IMPORTED_MODULE_15__
+                    etl: _config_etl_json__WEBPACK_IMPORTED_MODULE_19__
                   },
                   // 扩展
                   additionalModules: [// 小地图
-                  diagram_js_minimap__WEBPACK_IMPORTED_MODULE_16__["default"], // 自定义工具栏
-                  _customBpmn_palette__WEBPACK_IMPORTED_MODULE_11__["default"], // 自定义渲染
-                  _customBpmn_renderer__WEBPACK_IMPORTED_MODULE_12__["default"], // 自定义内容面板
-                  _customBpmn_context_pad__WEBPACK_IMPORTED_MODULE_13__["default"], {// 禁用左侧默认工具栏
+                  diagram_js_minimap__WEBPACK_IMPORTED_MODULE_20__["default"], // 自定义工具栏
+                  _customBpmn_palette__WEBPACK_IMPORTED_MODULE_15__["default"], // 自定义渲染
+                  _customBpmn_renderer__WEBPACK_IMPORTED_MODULE_16__["default"], // 自定义内容面板
+                  _customBpmn_context_pad__WEBPACK_IMPORTED_MODULE_17__["default"], {// 禁用左侧默认工具栏
                     // paletteProvider: ['value', '']// 去不干净，还是默认生成
                     // // 禁用滚轮滚动
                     // zoomScroll: ['value', ''],
@@ -187,40 +432,29 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
                 _this2.initEvent();
 
-                if (!_this2.$isEmpty(_this2.actions.import)) {
-                  _context.next = 13;
-                  break;
-                }
+                if (_this2.$isEmpty(_this2.actions.import)) {
+                  // 初始化 流程图
+                  _this2.createNewDiagram();
+                } else {
+                  _this2.$get(_this2.actions.import).then(function (res) {
+                    if (_typeof(res) === 'object' && res.code) {
+                      vm.createNewDiagram();
+                    } else {
+                      vm.importXML(res);
+                    }
+                  });
+                } // 调整与正中间
 
-                _context.next = 11;
-                return _this2.createNewDiagram();
 
-              case 11:
-                _context.next = 14;
-                break;
-
-              case 13:
-                _this2.$get(_this2.actions.import).then(function (res) {
-                  if (res.code === 200) {
-                    vm.importXML(res.data);
-                  }
-                }).catch(function (err) {
-                  console.log(err);
-                });
-
-              case 14:
-                // 调整与正中间
                 _this2.bpmnModeler.get('canvas').zoom('fit-viewport', 'auto'); // 初始化箭头
-
-
-                _this2.initArrow('sequenceflow-arrow-normal');
-
-                _this2.initArrow('sequenceflow-arrow-active'); // 默认打开 minimap
+                // this.initArrow('sequenceflow-arrow-normal')
+                // this.initArrow('sequenceflow-arrow-active')
+                // 默认打开 minimap
 
 
                 _this2.bpmnModeler.get('minimap').open();
 
-              case 18:
+              case 11:
               case "end":
                 return _context.stop();
             }
@@ -230,7 +464,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     },
     createNewDiagram: function createNewDiagram() {
       // 将字符串转换成图显示出来
-      this.xml = _example_bpmn__WEBPACK_IMPORTED_MODULE_17__["xmlStr"];
+      this.xml = _example_bpmn__WEBPACK_IMPORTED_MODULE_21__["xmlStr"];
       return this.importXML(this.xml);
     },
     importXML: function importXML(xml) {
@@ -246,8 +480,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     },
     // 初始化自定义箭头
     initArrow: function initArrow(id) {
-      var marker = Object(tiny_svg__WEBPACK_IMPORTED_MODULE_18__["create"])('marker');
-      Object(tiny_svg__WEBPACK_IMPORTED_MODULE_18__["attr"])(marker, {
+      var marker = Object(tiny_svg__WEBPACK_IMPORTED_MODULE_22__["create"])('marker');
+      Object(tiny_svg__WEBPACK_IMPORTED_MODULE_22__["attr"])(marker, {
         id: id,
         viewBox: '0 0 20 20',
         refX: '11',
@@ -256,14 +490,15 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         markerHeight: '10',
         orient: 'auto'
       });
-      var path = Object(tiny_svg__WEBPACK_IMPORTED_MODULE_18__["create"])('path');
-      Object(tiny_svg__WEBPACK_IMPORTED_MODULE_18__["attr"])(path, {
+      var path = Object(tiny_svg__WEBPACK_IMPORTED_MODULE_22__["create"])('path');
+      Object(tiny_svg__WEBPACK_IMPORTED_MODULE_22__["attr"])(path, {
         d: 'M 1 5 L 11 10 L 1 15 Z',
         style: ' stroke-width: 1px; stroke-linecap: round; stroke-dasharray: 10000, 1; '
       });
-      var defs = Object(min_dom__WEBPACK_IMPORTED_MODULE_19__["query"])('defs');
-      Object(tiny_svg__WEBPACK_IMPORTED_MODULE_18__["append"])(marker, path);
-      Object(tiny_svg__WEBPACK_IMPORTED_MODULE_18__["append"])(defs, marker);
+      var defs = Object(min_dom__WEBPACK_IMPORTED_MODULE_23__["query"])('defs');
+      console.log('defs', defs);
+      Object(tiny_svg__WEBPACK_IMPORTED_MODULE_22__["append"])(marker, path);
+      Object(tiny_svg__WEBPACK_IMPORTED_MODULE_22__["append"])(defs, marker);
     },
     saveXML: function saveXML() {
       var _this3 = this;
@@ -387,7 +622,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
                 _this5.$postfile(_this5.actions.upload, form).then(function (res) {
                   if (res.code === 200) {
-                    _this5.$emit("upload", result.data);
+                    _this5.$emit("upload", res.data);
+
+                    _this5.$message.success('保存成功');
                   }
                 });
 
@@ -520,7 +757,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     resizeListener: function resizeListener() {
       var canvas = this.bpmnModeler.get('canvas');
 
-      _components_admin_bpmn_customBpmn_utils_index_js__WEBPACK_IMPORTED_MODULE_20__["_fitViewport"].call(canvas, true);
+      _components_admin_bpmn_customBpmn_utils_index_js__WEBPACK_IMPORTED_MODULE_24__["_fitViewport"].call(canvas, true);
     }
   }
 });
@@ -537,6 +774,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _designer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./designer */ "./resources/js/components/admin/bpmn/designer.vue");
+/* harmony import */ var _amodal__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../amodal */ "./resources/js/components/admin/amodal/index.js");
+//
 //
 //
 //
@@ -559,16 +798,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "ABpmnInput",
   components: {
-    ABpmnDesigner: _designer__WEBPACK_IMPORTED_MODULE_0__["default"]
+    ABpmnDesigner: _designer__WEBPACK_IMPORTED_MODULE_0__["default"],
+    ADraggableModal: _amodal__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
   props: {
     file: {
       required: true,
       type: String,
-      default: ""
+      default: ''
     },
     actions: {
       required: true,
@@ -786,7 +1027,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
         alias: '',
         category_id: 0,
         group: '',
-        path: '',
+        bpmn_file: '',
         type: 0,
         order: 1,
         status: 1
@@ -867,6 +1108,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       this.form.status = checked ? 1 : 0;
     },
     onChangeBpmnPath: function onChangeBpmnPath(result) {
+      console.log(result);
       this.form.bpmn_file = result.path;
     },
     template_change: function template_change(row, form) {
@@ -959,7 +1201,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, ".bpmn[data-v-4abf8050] {\n  width: 100%;\n  position: relative;\n}\n.bpmn .canvas[data-v-4abf8050] {\n  width: 100%;\n  height: 100%;\n}\n.bpmn .panel[data-v-4abf8050] {\n  position: absolute;\n  right: 0;\n  top: 0;\n  width: 300px;\n}\n.bpmn .tool[data-v-4abf8050] {\n  position: absolute;\n  z-index: 1;\n  left: 50%;\n  bottom: 20px;\n  transform: translateX(-50%);\n}\n", ""]);
+exports.push([module.i, ".bpmn[data-v-4abf8050] {\n  width: 100%;\n  position: relative;\n}\n.bpmn .canvas[data-v-4abf8050] {\n  width: 100%;\n  height: 100%;\n}\n.bpmn .panel[data-v-4abf8050] {\n  position: absolute;\n  right: 0;\n  top: 0;\n  width: 300px;\n}\n.bpmn .tool[data-v-4abf8050] {\n  position: absolute;\n  z-index: 1;\n  left: 30%;\n  top: 0;\n  transform: translateX(-50%);\n}\n", ""]);
 
 // exports
 
@@ -1016,67 +1258,7 @@ var render = function() {
       "div",
       { staticClass: "tool" },
       [
-        _c("a-button", { on: { click: _vm.saveXML } }, [_vm._v("保存 XML")]),
-        _vm._v(" "),
-        _c("a-button", { on: { click: _vm.uploadXML } }, [_vm._v("上传 XML")]),
-        _vm._v(" "),
-        _c(
-          "a-button",
-          {
-            on: {
-              click: function($event) {
-                return _vm.$refs.refFile.click()
-              }
-            }
-          },
-          [_vm._v("导入 XML")]
-        ),
-        _vm._v(" "),
-        _c("a-button", { on: { click: _vm.saveSVG } }, [_vm._v("保存为 SVG")]),
-        _vm._v(" "),
-        _c("a-button", { on: { click: _vm.handlerUndo } }, [_vm._v("撤销")]),
-        _vm._v(" "),
-        _c("a-button", { on: { click: _vm.handlerRedo } }, [_vm._v("恢复")]),
-        _vm._v(" "),
-        _c(
-          "a-button",
-          {
-            on: {
-              click: function($event) {
-                return _vm.handlerZoom(0.1)
-              }
-            }
-          },
-          [_vm._v("放大")]
-        ),
-        _vm._v(" "),
-        _c(
-          "a-button",
-          {
-            on: {
-              click: function($event) {
-                return _vm.handlerZoom(-0.1)
-              }
-            }
-          },
-          [_vm._v("缩小")]
-        ),
-        _vm._v(" "),
-        _c(
-          "a-button",
-          {
-            on: {
-              click: function($event) {
-                return _vm.handlerZoom(0)
-              }
-            }
-          },
-          [_vm._v("还原")]
-        ),
-        _vm._v(" "),
-        _c("a-button", { on: { click: _vm.getElementAll } }, [
-          _vm._v("获取所有元素")
-        ]),
+        _c("a-button", { on: { click: _vm.uploadXML } }, [_vm._v("保存")]),
         _vm._v(" "),
         _c("a-input", {
           ref: "refFile",
@@ -1141,9 +1323,10 @@ var render = function() {
       ),
       _vm._v(" "),
       _c(
-        "a-modal",
+        "a-draggable-modal",
         {
           attrs: {
+            draggable: true,
             title: _vm.title,
             "body-style": { padding: 0, height: "800px" },
             "dialog-style": { top: 0, left: 0 },
@@ -1430,7 +1613,7 @@ var render = function() {
                           [
                             _c("a-bpmn-input", {
                               attrs: {
-                                file: _vm.form.bpmn_file,
+                                file: _vm.form.bpmn_file || "",
                                 actions: {
                                   upload:
                                     _vm.$api.moduleApprovalTemplates +
@@ -1441,7 +1624,12 @@ var render = function() {
                                     "/download/" +
                                     _vm.id
                                 },
-                                title: "流程设计器"
+                                title:
+                                  (_vm.form.path_text
+                                    ? _vm.form.path_text.join(" / ")
+                                    : "") +
+                                  _vm.form.name +
+                                  "流程设计器"
                               },
                               on: { change: _vm.onChangeBpmnPath }
                             })
@@ -1617,6 +1805,71 @@ var staticRenderFns = []
 render._withStripped = true
 
 
+
+/***/ }),
+
+/***/ "./resources/js/components/admin/amodal/AntModal.vue":
+/*!***********************************************************!*\
+  !*** ./resources/js/components/admin/amodal/AntModal.vue ***!
+  \***********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _AntModal_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AntModal.vue?vue&type=script&lang=js& */ "./resources/js/components/admin/amodal/AntModal.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+var render, staticRenderFns
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__["default"])(
+  _AntModal_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"],
+  render,
+  staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/admin/amodal/AntModal.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/admin/amodal/AntModal.vue?vue&type=script&lang=js&":
+/*!************************************************************************************!*\
+  !*** ./resources/js/components/admin/amodal/AntModal.vue?vue&type=script&lang=js& ***!
+  \************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AntModal_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./AntModal.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/amodal/AntModal.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AntModal_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/admin/amodal/index.js":
+/*!*******************************************************!*\
+  !*** ./resources/js/components/admin/amodal/index.js ***!
+  \*******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _AntModal__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AntModal */ "./resources/js/components/admin/amodal/AntModal.vue");
+
+/* harmony default export */ __webpack_exports__["default"] = (_AntModal__WEBPACK_IMPORTED_MODULE_0__["default"]);
 
 /***/ }),
 

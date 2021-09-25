@@ -14,3 +14,16 @@ if (! function_exists ('approval_config')) {
         return config ('approval.' . $key, $default);
     }
 }
+
+if (! function_exists ('bpmn_path')) {
+    /**
+     * Get BPMN storage relative path.
+     *
+     * @param  string|null  $path relative path that append to storage path
+     * @return string
+     */
+    function bpmn_path ($path)
+    {
+        return rtrim(approval_config('bpmn_path'), '/') . '/' . ltrim($path, '/');
+    }
+}

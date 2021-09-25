@@ -1,16 +1,16 @@
 <template>
     <div class="bpmn" :style="{height: height}">
         <div class="tool">
-            <a-button @click="saveXML">保存 XML</a-button>
-            <a-button @click="uploadXML">上传 XML</a-button>
-            <a-button @click="$refs.refFile.click()">导入 XML</a-button>
-            <a-button @click="saveSVG">保存为 SVG</a-button>
-            <a-button @click="handlerUndo">撤销</a-button>
-            <a-button @click="handlerRedo">恢复</a-button>
-            <a-button @click="handlerZoom(0.1)">放大</a-button>
-            <a-button @click="handlerZoom(-0.1)">缩小</a-button>
-            <a-button @click="handlerZoom(0)">还原</a-button>
-            <a-button @click="getElementAll">获取所有元素</a-button>
+            <!-- a-button @click="saveXML">保存 XML</a-button -->
+            <a-button @click="uploadXML">保存</a-button>
+            <!-- a-button @click="$refs.refFile.click()">导入 XML</a-button -->
+            <!-- a-button @click="saveSVG">保存为 SVG</a-button -->
+            <!-- a-button @click="handlerUndo">撤销</a-button -->
+            <!-- a-button @click="handlerRedo">恢复</a-button -->
+            <!-- a-button @click="handlerZoom(0.1)">放大</a-button -->
+            <!-- a-button @click="handlerZoom(-0.1)">缩小</a-button -->
+            <!-- a-button @click="handlerZoom(0)">还原</a-button -->
+            <!-- a-button @click="getElementAll">获取所有元素</a-button -->
 
             <a-input type="file"
                      id="files"
@@ -133,19 +133,19 @@ export default {
             // 绑定事件
             this.initEvent()
 
+
             if(this.$isEmpty(this.actions.import)){
                 // 初始化 流程图
-                await this.createNewDiagram()
+                this.createNewDiagram()
             }else{
                 this.$get(this.actions.import).then(res => {
-                    if(res.code === 200){
 
-                        vm.importXML (res.data);
-
+                    if(typeof res === 'object' && res.code){
+                        vm.createNewDiagram();
+                    } else {
+                        vm.importXML (res);
                     }
-                }).catch(err => {
 
-                    console.log(err)
                 });
             }
 
@@ -154,8 +154,8 @@ export default {
             this.bpmnModeler.get('canvas').zoom('fit-viewport', 'auto')
 
             // 初始化箭头
-            this.initArrow('sequenceflow-arrow-normal')
-            this.initArrow('sequenceflow-arrow-active')
+            // this.initArrow('sequenceflow-arrow-normal')
+            // this.initArrow('sequenceflow-arrow-active')
 
             // 默认打开 minimap
             this.bpmnModeler.get('minimap').open()
@@ -203,6 +203,7 @@ export default {
             })
 
             const defs = domQuery('defs')
+            console.log('defs', defs);
             svgAppend(marker, path)
             svgAppend(defs, marker)
         },
@@ -267,7 +268,8 @@ export default {
                 form.append('file', xmlBlob);
                 this.$postfile(this.actions.upload, form).then(res=> {
                     if(res.code === 200){
-                        this.$emit("upload", result.data);
+                        this.$emit("upload", res.data);
+                        this.$message.success('保存成功');
                     }
                 })
             } catch (err) {
@@ -408,8 +410,8 @@ export default {
     .tool {
         position: absolute;
         z-index: 1;
-        left: 50%;
-        bottom: 20px;
+        left: 30%;
+        top: 0;
         transform: translateX(-50%);
     }
 }
