@@ -25,7 +25,21 @@
 
         </div>
         <div class="admin_table_list">
-            <a-table :columns="columns" :data-source="list" :pagination="false" :row-selection="{ selectedRowKeys: selectedRowKeys, onChange: onSelectChange }" row-key="id">
+            <a-table
+                :columns="columns"
+                :data-source="list"
+                :loading="list_loading"
+                :pagination="false"
+                :row-selection="{ selectedRowKeys: selectedRowKeys, onChange: onSelectChange }"
+                row-key="id">
+                <template slot="title" slot-scope="currentPageData">
+                    <search :search-config="search" @searchParams="onSearchParams"/>
+                    <div class="admin_table_handle_btn">
+                        <a-button @click="$router.push('/Admin/goodcatch/m/approval/categories/form')" type="primary" icon="plus">添加</a-button>
+                        <a-button class="admin_delete_btn" type="danger" icon="delete" @click="del">批量删除</a-button>
+
+                    </div>
+                </template>
                 <span slot="pid" slot-scope="record">
                     {{ record.path_text ? record.path_text.join(' / ') : '--' }}
                 </span>
@@ -56,8 +70,9 @@
 
 <script>
 
+import Search from '@/components/admin/search'
 export default {
-    components: {},
+    components: { Search },
     props: {},
     data() {
       return {
@@ -66,6 +81,7 @@ export default {
               per_page:30,
           },
           total:0, //总页数
+          list_loading: false,
           selectedRowKeys:[], // 被选择的行
           columns:[
               {title:'#',dataIndex:'id',fixed:'left'},
@@ -97,6 +113,10 @@ export default {
     watch: {},
     computed: {},
     methods: {
+        // 查询条件
+        onSearchParams(search){
+            this.getList(null, search);
+        },
         // 选择框被点击
         onSelectChange(selectedRowKeys) {
             this.selectedRowKeys = selectedRowKeys;
@@ -172,14 +192,22 @@ export default {
             }
             this.getList(record.id);
         },
-        getList(pid){
+        getList(pid, search = {}){
+            this.list_loading = true;
             if(!pid){
                 this.breadcrumb = [];
             }
-            const params = pid ? Object.assign({}, this.params, { pid: pid }) : this.params;
+            const params = pid ? Object.assign({}, search, this.params, { pid: pid })
+                : Object.assign({}, search, this.params);
             this.$get(this.$api.moduleApprovalCategories, params).then(res=>{
-                this.total = res.data.total;
-                this.list = res.data.data;
+                if (res.code === 200){
+                    this.total = res.data.total;
+                    this.list = res.data.data;
+                }
+                this.list_loading = false;
+            }, err=>{
+                this.$message.error('数据加载失败');
+                this.list_loading = false;
             });
         },
         onload(){

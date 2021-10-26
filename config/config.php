@@ -8,4 +8,8 @@ return [
         ]
     ],
     'bpmn_path' => env('MODULE_APPROVAL_BPMN_PATH', 'app/process'),
+
+    'menu' => [
+        'type' => 115
+    ]
 ];

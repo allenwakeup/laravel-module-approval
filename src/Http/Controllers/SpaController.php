@@ -12,10 +12,13 @@ class SpaController extends Controller
     {
         parent::__construct();
 
-        View::share('goodcatch', 'Goodcatch Modules Core');
+        View::share('goodcatch', 'Goodcatch Modules Approval');
     }
 
     protected function moduleIndex(array $view_content){
+
+        $view_content = array_merge($view_content, ['menu_type' => config('approval.menu.type')]);
+
         return view('approval::index', $view_content);
     }
 }
